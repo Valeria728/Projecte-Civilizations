@@ -1,4 +1,5 @@
 package civilization;
 
-public class Swordsman extends AttackUnit {
+public class Swordsman {
+
 }
