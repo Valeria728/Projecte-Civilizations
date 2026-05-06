@@ -2,7 +2,7 @@ package Civilizacio;
 
 import java.util.ArrayList;
 
-public class Civilization  {
+public class Civilization implements Variables {
 	
     private int technologyDefense;
     private int technologyAttack;
@@ -26,5 +26,5 @@ public class Civilization  {
         this.food = 15000;
         this.mana = 0;
         
-     
+        
 }}
