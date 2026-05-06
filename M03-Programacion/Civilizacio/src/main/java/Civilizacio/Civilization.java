@@ -26,5 +26,5 @@ public class Civilization implements Variables {
         this.food = 15000;
         this.mana = 0;
         
-        
+     
 }}
