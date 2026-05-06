@@ -1,5 +1,5 @@
 package Civilizacio;
 
-public class Variables {
-
+public interface Variables {
+	
 }
