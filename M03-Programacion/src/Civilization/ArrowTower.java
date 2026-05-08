@@ -1,14 +1,14 @@
 package Civilization;
 
-public class ArrowTower extends DefenseUnit {
-    public ArrowTower(int armor, int baseDamage) { 
-    	super(armor, baseDamage); 
+public class ArrowTower extends DefenseUnit { // Hija de DefenseUnit hereda armadura y daño
+    public ArrowTower(int armor, int baseDamage) { // Crea nueva torre
+    	super(armor, baseDamage); // pasamos armadura y daño para guardar en la memoria de la unidad
     }
-    @Override 
-    public int attack() { 
+    @Override //sobre escribimos en clase padre o interface 
+    public int attack() { //Daño inflijido al disparar Torre
     	return baseDamage; 
     }
-    @Override 
+    @Override // MEtodos para saber costes 
     public int getFoodCost() { 
     	return FOOD_COST_ARROWTOWER; 
     }
@@ -24,12 +24,12 @@ public class ArrowTower extends DefenseUnit {
     public int getManaCost() { 
     	return MANA_COST_ARROWTOWER; 
     }
-    @Override 
-    public int getChanceGeneratinWaste() { 
+    @Override //Metodos para la batalla
+    public int getChanceGeneratinWaste() { //DEvuelve lo que genera o prabilidad de escombros en %.
     	return CHANCE_GENERATNG_WASTE_ARROWTOWER; 
     }
     @Override 
-    public int getChanceAttackAgain() { 
+    public int getChanceAttackAgain() { //Atacar denuevo en el turno, devueltve % en flechas.
     	return CHANCE_ATTACK_AGAIN_ARROWTOWER; 
     }
 }
