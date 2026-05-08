@@ -34,7 +34,8 @@ public class Civilization implements Variables {
                 int armor = ARMOR_SWORDSMAN + (technologyDefense * PLUS_ARMOR_SWORDSMAN_BY_TECHNOLOGY * ARMOR_SWORDSMAN / 100);
                 int damage = BASE_DAMAGE_SWORDSMAN + (technologyAttack * PLUS_ATTACK_SWORDSMAN_BY_TECHNOLOGY * BASE_DAMAGE_SWORDSMAN / 100);
                 army[0].add(new Swordsman(armor, damage));
-            } else throw new ResourceException("Recursos insuficientes para Swordsman");
+            } 
+            else throw new ResourceException("Recursos insuficientes para Swordsman");
         }
     }
 
@@ -45,7 +46,8 @@ public class Civilization implements Variables {
                 int h = ARMOR_SPEARMAN + (technologyDefense * PLUS_ARMOR_SPEARMAN_BY_TECHNOLOGY * ARMOR_SPEARMAN / 100);
                 int d = BASE_DAMAGE_SPEARMAN + (technologyAttack * PLUS_ATTACK_SPEARMAN_BY_TECHNOLOGY * BASE_DAMAGE_SPEARMAN / 100);
                 army[1].add(new Spearman(h, d));
-            } else throw new ResourceException("Recursos insuficientes para Spearman");
+            } 
+            else throw new ResourceException("Recursos insuficientes para Spearman");
         }
     }
 
@@ -56,7 +58,8 @@ public class Civilization implements Variables {
                 int h = ARMOR_CROSSBOW + (technologyDefense * PLUS_ARMOR_CROSSBOW_BY_TECHNOLOGY * ARMOR_CROSSBOW / 100);
                 int d = BASE_DAMAGE_CROSSBOW + (technologyAttack * PLUS_ATTACK_CROSSBOW_BY_TECHNOLOGY * BASE_DAMAGE_CROSSBOW / 100);
                 army[2].add(new Crossbow(h, d));
-            } else throw new ResourceException("Recursos insuficientes para Crossbow");
+            } 
+            else throw new ResourceException("Recursos insuficientes para Crossbow");
         }
     }
 
@@ -67,7 +70,8 @@ public class Civilization implements Variables {
                 int h = ARMOR_CANNON + (technologyDefense * PLUS_ARMOR_CANNON_BY_TECHNOLOGY * ARMOR_CANNON / 100);
                 int d = BASE_DAMAGE_CANNON + (technologyAttack * PLUS_ATTACK_CANNON_BY_TECHNOLOGY * BASE_DAMAGE_CANNON / 100);
                 army[3].add(new Cannon(h, d));
-            } else throw new ResourceException("Recursos insuficientes para Cannon");
+            } 
+            else throw new ResourceException("Recursos insuficientes para Cannon");
         }
     }
 
@@ -80,7 +84,8 @@ public class Civilization implements Variables {
                 int h = ARMOR_ARROWTOWER + (technologyDefense * PLUS_ARMOR_ARROWTOWER_BY_TECHNOLOGY * ARMOR_ARROWTOWER / 100);
                 int d = BASE_DAMAGE_ARROWTOWER + (technologyAttack * PLUS_ATTACK_ARROWTOWER_BY_TECHNOLOGY * BASE_DAMAGE_ARROWTOWER / 100);
                 army[4].add(new ArrowTower(h, d));
-            } else throw new ResourceException("Recursos insuficientes para Arrow Tower");
+            } 
+            else throw new ResourceException("Recursos insuficientes para Arrow Tower");
         }
     }
 
@@ -91,7 +96,8 @@ public class Civilization implements Variables {
                 int h = ARMOR_CATAPULT + (technologyDefense * PLUS_ARMOR_CATAPULT_BY_TECHNOLOGY * ARMOR_CATAPULT / 100);
                 int d = BASE_DAMAGE_CATAPULT + (technologyAttack * PLUS_ATTACK_CATAPULT_BY_TECHNOLOGY * BASE_DAMAGE_CATAPULT / 100);
                 army[5].add(new Catapult(h, d));
-            } else throw new ResourceException("Recursos insuficientes para Catapult");
+            } 
+            else throw new ResourceException("Recursos insuficientes para Catapult");
         }
     }
 
@@ -102,7 +108,8 @@ public class Civilization implements Variables {
                 int h = ARMOR_ROCKETLAUNCHERTOWER + (technologyDefense * PLUS_ARMOR_ROCKETLAUNCHERTOWER_BY_TECHNOLOGY * ARMOR_ROCKETLAUNCHERTOWER / 100);
                 int d = BASE_DAMAGE_ROCKETLAUNCHERTOWER + (technologyAttack * PLUS_ATTACK_ROCKETLAUNCHERTOWER_BY_TECHNOLOGY * BASE_DAMAGE_ROCKETLAUNCHERTOWER / 100);
                 army[6].add(new RocketLauncherTower(h, d));
-            } else throw new ResourceException("Recursos insuficientes para Rocket Launcher");
+            } 
+            else throw new ResourceException("Recursos insuficientes para Rocket Launcher");
         }
     }
 
@@ -114,7 +121,8 @@ public class Civilization implements Variables {
             if (food >= FOOD_COST_MAGICIAN && wood >= WOOD_COST_MAGICIAN && iron >= IRON_COST_MAGICIAN && mana >= MANA_COST_MAGICIAN) {
                 food -= FOOD_COST_MAGICIAN; wood -= WOOD_COST_MAGICIAN; iron -= IRON_COST_MAGICIAN; mana -= MANA_COST_MAGICIAN;
                 army[7].add(new Magician());
-            } else throw new ResourceException("Recursos insuficientes para Magician");
+            } 
+            else throw new ResourceException("Recursos insuficientes para Magician");
         }
     }
 
@@ -124,7 +132,8 @@ public class Civilization implements Variables {
             if (food >= FOOD_COST_PRIEST && mana >= MANA_COST_PRIEST) {
                 food -= FOOD_COST_PRIEST; mana -= MANA_COST_PRIEST;
                 army[8].add(new Priest());
-            } else throw new ResourceException("Recursos insuficientes para Priest");
+            } 
+            else throw new ResourceException("Recursos insuficientes para Priest");
         }
     }
 
@@ -134,35 +143,40 @@ public class Civilization implements Variables {
         if (food >= FOOD_COST_FARM && wood >= WOOD_COST_FARM && iron >= IRON_COST_FARM) {
             food -= FOOD_COST_FARM; wood -= WOOD_COST_FARM; iron -= IRON_COST_FARM;
             farm++;
-        } else throw new ResourceException("No hay recursos para Granja");
+        } 
+        else throw new ResourceException("No hay recursos para Granja");
     }
 
     public void buildCarpentry() throws ResourceException {
         if (food >= FOOD_COST_CARPENTRY && wood >= WOOD_COST_CARPENTRY && iron >= IRON_COST_CARPENTRY) {
             food -= FOOD_COST_CARPENTRY; wood -= WOOD_COST_CARPENTRY; iron -= IRON_COST_CARPENTRY;
             carpentry++; 
-        } else throw new ResourceException("No hay recursos para Carpintería");
+        } 
+        else throw new ResourceException("No hay recursos para Carpintería");
     }
 
     public void buildSmithy() throws ResourceException {
         if (food >= FOOD_COST_SMITHY && wood >= WOOD_COST_SMITHY && iron >= IRON_COST_SMITHY) {
             food -= FOOD_COST_SMITHY; wood -= WOOD_COST_SMITHY; iron -= IRON_COST_SMITHY;
             smithy++;
-        } else throw new ResourceException("No hay recursos para Herrería");
+        } 
+        else throw new ResourceException("No hay recursos para Herrería");
     }
 
     public void buildMagicTower() throws ResourceException {
         if (food >= FOOD_COST_MAGICTOWER && wood >= WOOD_COST_MAGICTOWER && iron >= IRON_COST_MAGICTOWER) {
             food -= FOOD_COST_MAGICTOWER; wood -= WOOD_COST_MAGICTOWER; iron -= IRON_COST_MAGICTOWER;
             magicTower++;
-        } else throw new ResourceException("No hay recursos para Torre Mágica");
+        } 
+        else throw new ResourceException("No hay recursos para Torre Mágica");
     }
 
     public void buildChurch() throws ResourceException {
         if (food >= FOOD_COST_CHURCH && wood >= WOOD_COST_CHURCH && iron >= IRON_COST_CHURCH) {
             food -= FOOD_COST_CHURCH; wood -= WOOD_COST_CHURCH; iron -= IRON_COST_CHURCH;
             church++;
-        } else throw new ResourceException("No hay recursos para Iglesia");
+        } 
+        else throw new ResourceException("No hay recursos para Iglesia");
     }
 
     // --- TECNOLOGÍAS Y RECURSOS ---
@@ -191,29 +205,75 @@ public class Civilization implements Variables {
     }
 
     // --- GETTERS Y SETTERS ---
-    public ArrayList<MilitaryUnit>[] getArmy() { return army; }
-    public int getWood() { return wood; }
-    public void setWood(int wood) { this.wood = wood; }
-    public int getIron() { return iron; }
-    public void setIron(int iron) { this.iron = iron; }
-    public int getFood() { return food; }
-    public void setFood(int food) { this.food = food; }
-    public int getMana() { return mana; }
-    public void setMana(int mana) { this.mana = mana; }
-    public int getTechnologyAttack() { return technologyAttack; }
-    public void setTechnologyAttack(int level) { this.technologyAttack = level; }
-    public int getTechnologyDefense() { return technologyDefense; }
-    public void setTechnologyDefense(int level) { this.technologyDefense = level; }
-    public int getCarpentry() { return carpentry; }
-    public void setCarpentry(int carpentry) { this.carpentry = carpentry; }
-    public int getFarm() { return farm; }
-    public void setFarm(int farm) { this.farm = farm; }
-    public int getSmithy() { return smithy; }
-    public void setSmithy(int smithy) { this.smithy = smithy; }
-    public int getChurch() { return church; }
-    public void setChurch(int church) { this.church = church; }
-    public int getMagicTower() { return magicTower; }
-    public void setMagicTower(int magicTower) { this.magicTower = magicTower; }
+    public ArrayList<MilitaryUnit>[] getArmy() { 
+    	return army; 
+    }
+    public int getWood() { 
+    	return wood; 
+    }
+    public void setWood(int wood) { 
+    	this.wood = wood; 
+    }
+    public int getIron() { 
+    	return iron; 
+    }
+    public void setIron(int iron) { 
+    	this.iron = iron; 
+    }
+    public int getFood() { 
+    	return food; 
+    }
+    public void setFood(int food) { 
+    	this.food = food; 
+    }
+    public int getMana() { 
+    	return mana; 
+    }
+    public void setMana(int mana) { 
+    	this.mana = mana; 
+    }
+    public int getTechnologyAttack() { 
+    	return technologyAttack; 
+    }
+    public void setTechnologyAttack(int level) { 
+    	this.technologyAttack = level; 
+    }
+    public int getTechnologyDefense() { 
+    	return technologyDefense; 
+    }
+    public void setTechnologyDefense(int level) { 
+    	this.technologyDefense = level; 
+    }
+    public int getCarpentry() { 
+    	return carpentry; 
+    }
+    public void setCarpentry(int carpentry) { 
+    	this.carpentry = carpentry; 
+    }
+    public int getFarm() { 
+    	return farm; 
+    }
+    public void setFarm(int farm) { 
+    	this.farm = farm; 
+    }
+    public int getSmithy() { 
+    	return smithy; 
+    }
+    public void setSmithy(int smithy) { 
+    	this.smithy = smithy; 
+    }
+    public int getChurch() { 
+    	return church; 
+    }
+    public void setChurch(int church) { 
+    	this.church = church; 
+    }
+    public int getMagicTower() { 
+    	return magicTower; 
+    }
+    public void setMagicTower(int magicTower) { 
+    	this.magicTower = magicTower; 
+    }
 
     // --- MÉTODO AUXILIAR PARA EL DAO ---
     public void createUnit(int unitType) {
