@@ -1,1 +1,6 @@
-
+Despues de repartirnos la parte de programacions, hemos empezado ha crear por ramas las clases
+Acabo de subir la AttackUnit.java, es implements de military y variables.
+He subido dos clases mas, la de Spearman y ArrowTower que son extends de AttackUnit.
+Creada la clase Magician.
+Despues de varias horas intensas de como organizar clases,subo las que de momento parecen funcionar,
+Se realizan cambios en el menu para poder ver los costes insitu de los recursos.
