@@ -1,5 +1,6 @@
-package M03-Programacion.units.defense;
+package units.defense;
+import units.DefenseUnit;
 
-public class ArrowTower {
+public class ArrowTower extends DefenseUnit{
     
 }

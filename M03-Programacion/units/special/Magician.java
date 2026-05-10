@@ -1,4 +1,7 @@
+package units.special;
 
-public class Magician {
+import units.SpecialUnit;
+
+public class Magician extends SpecialUnit{
     
 }

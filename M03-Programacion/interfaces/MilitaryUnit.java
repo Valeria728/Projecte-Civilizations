@@ -1,4 +1,4 @@
-package M03-Programacion.interfaces;
+package interfaces;
 
 public interface MilitaryUnit {
     

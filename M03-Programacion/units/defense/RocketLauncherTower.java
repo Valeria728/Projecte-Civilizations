@@ -1,5 +1,7 @@
-package M03-Programacion.units.defense;
+package units.defense;
 
-public class RocketLauncherTower {
+import units.DefenseUnit;
+
+public class RocketLauncherTower extends DefenseUnit{
     
 }

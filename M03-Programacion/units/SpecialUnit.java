@@ -1,6 +1,8 @@
-package M03-Programacion.units;
+package units;
 
+import interfaces.MilitaryUnit;
+import interfaces.Variables;
 
-public class SpecialUnit {
+public abstract class SpecialUnit implements MilitaryUnit,Variables{
     
 }

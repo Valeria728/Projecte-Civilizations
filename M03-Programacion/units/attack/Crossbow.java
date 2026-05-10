@@ -1,4 +1,7 @@
+package units.attack;
 
-public class Crossbow {
+import units.AttackUnit;
+
+public class Crossbow extends AttackUnit{
     
 }
