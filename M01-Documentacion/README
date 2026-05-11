@@ -1,1 +1,43 @@
+REGISTRO DE ACTIVIDADES -- INICIO DEL PROYECTO
+===============================================
 
+Lunes, 4 de mayo
+Durante esta jornada se realizó la presentación oficial del proyecto por parte del equipo docente. 
+El objetivo principal del día fue comprender el alcance general del sistema a desarrollar, 
+así como identificar los principales requisitos y funcionalidades planteadas en el enunciado.
+
+Se llevó a cabo una primera lectura exploratoria del proyecto con el fin de familiarizarnos con la estructura, 
+los conceptos clave y las tecnologías implicadas. Esta toma de contacto inicial permitió establecer una base común 
+de entendimiento entre los integrantes del equipo.
+
+------------------------------------------------------------------------------------------------------------------------
+
+Martes, 5 de mayo
+
+En este día se inició el trabajo práctico del proyecto. Las principales actividades realizadas fueron:
+
+· Creación y organización inicial de la estructura de carpetas en el repositorio de GitHub, 
+  siguiendo una lógica modular para facilitar el desarrollo.
+· Intento de integración del entorno de desarrollo Eclipse IDE con el repositorio en GitHub
+
+Durante este proceso surgieron diversas dificultades técnicas, especialmente relacionadas con:
+
+·  La conexión entre el IDE y el repositorio remoto.
+·  La sincronización de cambios (push/pull).
+·  La visualización de actualizaciones tanto en local como en la nube.
+
+Estas incidencias requirieron una inversión considerable de tiempo durante la jornada, afectando parcialmente al ritmo de avance previsto.
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+Miércoles, 6 de mayo
+
+El trabajo continuó fuera del horario de clases, centrado principalmente en la comprensión profunda del enunciado del proyecto. 
+Las actividades realizadas fueron:
+
+·  Lectura detallada y análisis del ejercicio para identificar requisitos funcionales y técnicos.
+·  Definición de una estructura de trabajo basada en fases (planificación, desarrollo, pruebas, etc.).
+·  División del proyecto en diferentes módulos o secciones.
+·  Asignación de responsabilidades entre los tres integrantes del equipo, con el objetivo de optimizar la organización y el progreso del desarrollo.
+
+Este día fue clave para establecer una base organizativa sólida, permitiendo transformar un problema complejo en tareas más manejables y bien distribuidas.
