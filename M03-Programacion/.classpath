@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="/home/super/Downloads/mysql-connector-j-9.7.0/mysql-connector-j-9.7.0.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="exceptions"/>
+	<classpathentry kind="src" path="game"/>
+	<classpathentry kind="src" path="units/attack"/>
+	<classpathentry kind="src" path="units/special"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

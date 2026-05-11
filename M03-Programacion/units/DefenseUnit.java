@@ -1,16 +1,22 @@
-package Civilization;
+package units;
 
-public abstract class DefenseUnit implements MilitaryUnit, Variables {
-    protected int armor;
+import interfaces.MilitaryUnit;
+import interfaces.Variables;
+
+public abstract class DefenseUnit implements MilitaryUnit,Variables {
+	
+	protected int armor;
     protected int initialArmor;
     protected int baseDamage;
     protected int experience;
+    protected boolean sanctified;
 
     public DefenseUnit(int armor, int baseDamage) {
         this.armor = armor;
         this.initialArmor = armor;
         this.baseDamage = baseDamage;
         this.experience = 0;
+        this.sanctified = false;
     }
 
     public void takeDamage(int receivedDamage) {
@@ -32,4 +38,5 @@ public abstract class DefenseUnit implements MilitaryUnit, Variables {
     public int getExperience() {
         return this.experience;
     }
+    
 }
