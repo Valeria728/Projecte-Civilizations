@@ -1,8 +1,8 @@
 package exceptions;
 
-public class ResourcesException extends Exception {
-	public ResourcesException(String message) {
+public class ResourceException extends Exception {
+
+    public ResourceException(String message) {
         super(message);
     }
-    
 }
