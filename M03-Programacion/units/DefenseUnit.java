@@ -3,9 +3,9 @@ package units;
 import interfaces.MilitaryUnit;
 import interfaces.Variables;
 
-public abstract class DefenseUnit implements MilitaryUnit,Variables {
-	
-	protected int armor;
+public abstract class DefenseUnit implements MilitaryUnit, Variables {
+
+    protected int armor;
     protected int initialArmor;
     protected int baseDamage;
     protected int experience;
@@ -19,24 +19,61 @@ public abstract class DefenseUnit implements MilitaryUnit,Variables {
         this.sanctified = false;
     }
 
+    @Override
+    public int attack() {
+        int damage = baseDamage;
+        // Aplica bonus por experiencia y por estar santificado usando las constantes
+        damage += (experience * PLUS_ATTACK_UNIT_PER_EXPERIENCE_POINT * baseDamage / 100);
+        if (sanctified) {
+            damage += (PLUS_ATTACK_UNIT_SANCTIFIED * baseDamage / 100);
+        }
+        return damage;
+    }
+
+    @Override
     public void takeDamage(int receivedDamage) {
         this.armor -= receivedDamage;
     }
 
+    @Override
     public int getActualArmor() {
-        return this.armor;
+        return armor;
     }
 
+    @Override
     public void resetArmor() {
-        this.armor = this.initialArmor;
+        this.armor = initialArmor;
     }
 
+    @Override
     public void setExperience(int n) {
         this.experience = n;
     }
 
+    @Override
     public int getExperience() {
-        return this.experience;
+        return experience;
     }
-    
+
+    public boolean isSanctified() {
+        return sanctified;
+    }
+
+    public void setSanctified(boolean sanctified) {
+        this.sanctified = sanctified;
+        // Si se santifica, la armadura sube un porcentaje extra sobre la inicial
+        if (sanctified) {
+            this.armor = initialArmor + (PLUS_ARMOR_UNIT_SANCTIFIED * initialArmor / 100);
+        } else {
+            this.armor = initialArmor;
+        }
+    }
+
+    public int getInitialArmor() {
+        return initialArmor;
+    }
+
+    public int getBaseDamage() {
+        return baseDamage;
+    }
 }
