@@ -3,6 +3,9 @@ package game;
 import java.util.ArrayList;
 import java.util.Random;
 
+import interfaces.MilitaryUnit;
+import interfaces.Variables;
+
 public class Battle implements Variables {
 
     private ArrayList<MilitaryUnit> civilizationArmy;

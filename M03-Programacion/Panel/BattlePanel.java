@@ -2,6 +2,9 @@ package Panel;
 
 import javax.swing.*;
 import javax.swing.border.*;
+
+import DAO.BattleDAO;
+
 import java.awt.*;
 import java.awt.event.*;
 
