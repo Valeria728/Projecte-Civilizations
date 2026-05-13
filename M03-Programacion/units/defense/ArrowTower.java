@@ -1,5 +1,5 @@
-package civilizationnew;
-
+package units.defense;
+import 
 public class ArrowTower extends DefenseUnit {
 
     public ArrowTower(int technologyDefense, int technologyAttack) {

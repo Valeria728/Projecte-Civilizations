@@ -1,4 +1,4 @@
-package civilizationnew;
+package exceptions;
 
 public class BuildingException extends Exception {
 
