@@ -1,7 +1,15 @@
-package civilizationnew;
+package PANEL;
 
 
 import javax.swing.*;
+
+import DAO.BattleDAO;
+import DAO.CivilizationDAO;
+import game.Civilization;
+import interfaces.MilitaryUnit;
+import interfaces.Variables;
+import units.attack.*;
+
 import java.awt.*;
 import java.util.Timer;
 import java.util.TimerTask;

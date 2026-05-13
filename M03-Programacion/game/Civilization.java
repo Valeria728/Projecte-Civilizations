@@ -2,6 +2,7 @@ package game;
 
 import interfaces.Variables;
 import units.AttackUnit;
+import units.DefenseUnit;
 import units.attack.Cannon;
 import units.attack.Crossbow;
 import units.attack.Spearman;

@@ -1,4 +1,6 @@
-package civilizationnew;
+package units;
+
+import interfaces.*;
 
 public abstract class DefenseUnit implements MilitaryUnit, Variables {
 
