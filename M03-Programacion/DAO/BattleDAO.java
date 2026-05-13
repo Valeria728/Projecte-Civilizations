@@ -3,6 +3,8 @@ package DAO;
 import java.sql.*;
 import java.util.ArrayList;
 
+import game.Battle;
+
 /**
  * DAO para guardar y recuperar resultados de batallas.
  */
