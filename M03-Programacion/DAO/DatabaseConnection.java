@@ -1,4 +1,4 @@
-package civilizationnew;
+package DAO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,8 +14,8 @@ public class DatabaseConnection {
 
     // Cambia estos valores según tu entorno
     private static final String URL      = "jdbc:mysql://localhost:3306/civilizations_db";
-    private static final String USER     = "root";
-    private static final String PASSWORD = "Miguel:123*";
+    private static final String USER     = "valeria";
+    private static final String PASSWORD = "civilizacion.";
 
     // Constructor privado: nadie puede crear instancias desde fuera
     private DatabaseConnection() {}

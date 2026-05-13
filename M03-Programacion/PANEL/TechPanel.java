@@ -1,7 +1,11 @@
-package civilizationnew;
+package PANEL;
 
 import javax.swing.*;
 import javax.swing.border.*;
+
+import exceptions.*;
+import game.Civilization;
+
 import java.awt.*;
 import java.awt.event.*;
 

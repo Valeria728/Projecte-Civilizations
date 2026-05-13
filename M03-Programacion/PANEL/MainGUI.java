@@ -2,9 +2,9 @@ package PANEL;
 
 
 import javax.swing.*;
-
 import DAO.BattleDAO;
 import DAO.CivilizationDAO;
+import game.Battle;
 import game.Civilization;
 import interfaces.MilitaryUnit;
 import interfaces.Variables;
