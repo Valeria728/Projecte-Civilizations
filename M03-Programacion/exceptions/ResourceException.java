@@ -1,4 +1,4 @@
-package exceptions;
+package civilizationnew;
 
 public class ResourceException extends Exception {
 
