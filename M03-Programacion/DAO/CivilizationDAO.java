@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import game.Civilization;
 import interfaces.MilitaryUnit;
 import units.AttackUnit;
+import units.DefenseUnit;
+import units.SpecialUnit;
 import units.attack.Cannon;
 import units.attack.Crossbow;
 import units.attack.Spearman;

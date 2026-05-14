@@ -1,3 +1,32 @@
 package units.defense;
+import units.DefenseUnit;
+public class RocketLauncherTower extends DefenseUnit {
 
+    public RocketLauncherTower(int technologyDefense, int technologyAttack) {
+        super(
+            ARMOR_ROCKETLAUNCHERTOWER + (technologyDefense * PLUS_ARMOR_ROCKETLAUNCHERTOWER_BY_TECHNOLOGY * ARMOR_ROCKETLAUNCHERTOWER / 100),
+            BASE_DAMAGE_ROCKETLAUNCHERTOWER + (technologyAttack * PLUS_ATTACK_ROCKETLAUNCHERTOWER_BY_TECHNOLOGY * BASE_DAMAGE_ROCKETLAUNCHERTOWER / 100)
+        );
+    }
 
+    @Override
+    public int getFoodCost() { return FOOD_COST_ROCKETLAUNCHERTOWER; }
+
+    @Override
+    public int getWoodCost() { return WOOD_COST_ROCKETLAUNCHERTOWER; }
+
+    @Override
+    public int getIronCost() { return IRON_COST_ROCKETLAUNCHERTOWER; }
+
+    @Override
+    public int getManaCost() { return MANA_COST_ROCKETLAUNCHERTOWER; }
+
+    @Override
+    public int getChanceGeneratingWaste() { return CHANCE_GENERATNG_WASTE_ROCKETLAUNCHERTOWER; }
+
+    @Override
+    public int getChanceAttackAgain() { return CHANCE_ATTACK_AGAIN_ROCKETLAUNCHERTOWER; }
+
+    @Override
+    public String toString() { return "Rocket Launcher Tower"; }
+}

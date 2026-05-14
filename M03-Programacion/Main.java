@@ -6,6 +6,13 @@ import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import exceptions.*;
+import game.Battle;
+import game.Civilization;
+import interfaces.MilitaryUnit;
+import interfaces.Variables;
+import units.attack.*;
+
 public class Main implements Variables {
 
     private static Civilization civilization = new Civilization();

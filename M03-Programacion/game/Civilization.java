@@ -2,6 +2,7 @@ package game;
 
 import interfaces.Variables;
 import units.AttackUnit;
+import units.DefenseUnit;
 import units.attack.Cannon;
 import units.attack.Crossbow;
 import units.attack.Spearman;
@@ -11,11 +12,12 @@ import units.attack.Swordsman;
 
 import java.util.ArrayList;
 
+import units.defense.*;
+import units.defense.ArrowTower;
 import interfaces.MilitaryUnit;
 import exceptions.BuildingException;
-import exceptions.ResourcesException;
-import java.util.ArrayList;
-
+import exceptions.ResourceException;
+import units.special.*;
 public class Civilization implements Variables {
 
     // Technology levels
@@ -123,9 +125,9 @@ public class Civilization implements Variables {
     // BUILDINGS
     // -------------------------
 
-    public void newFarm() throws ResourcesException {
+    public void newFarm() throws ResourceException {
         if (food < FOOD_COST_FARM || wood < WOOD_COST_FARM || iron < IRON_COST_FARM) {
-            throw new ResourcesException("Not enough resources to build a Farm. Required: Food=" + FOOD_COST_FARM + " Wood=" + WOOD_COST_FARM + " Iron=" + IRON_COST_FARM);
+            throw new ResourceException("Not enough resources to build a Farm. Required: Food=" + FOOD_COST_FARM + " Wood=" + WOOD_COST_FARM + " Iron=" + IRON_COST_FARM);
         }
         food = food - FOOD_COST_FARM;
         wood = wood - WOOD_COST_FARM;
@@ -134,9 +136,9 @@ public class Civilization implements Variables {
         System.out.println("Farm built! Total farms: " + farm);
     }
 
-    public void newCarpentry() throws ResourcesException {
+    public void newCarpentry() throws ResourceException {
         if (food < FOOD_COST_CARPENTRY || wood < WOOD_COST_CARPENTRY || iron < IRON_COST_CARPENTRY) {
-            throw new ResourcesException("Not enough resources to build a Carpentry. Required: Food=" + FOOD_COST_CARPENTRY + " Wood=" + WOOD_COST_CARPENTRY + " Iron=" + IRON_COST_CARPENTRY);
+            throw new ResourceException("Not enough resources to build a Carpentry. Required: Food=" + FOOD_COST_CARPENTRY + " Wood=" + WOOD_COST_CARPENTRY + " Iron=" + IRON_COST_CARPENTRY);
         }
         food = food - FOOD_COST_CARPENTRY;
         wood = wood - WOOD_COST_CARPENTRY;
@@ -145,9 +147,9 @@ public class Civilization implements Variables {
         System.out.println("Carpentry built! Total carpentries: " + carpentry);
     }
 
-    public void newSmithy() throws ResourcesException {
+    public void newSmithy() throws ResourceException {
         if (food < FOOD_COST_SMITHY || wood < WOOD_COST_SMITHY || iron < IRON_COST_SMITHY) {
-            throw new ResourcesException("Not enough resources to build a Smithy. Required: Food=" + FOOD_COST_SMITHY + " Wood=" + WOOD_COST_SMITHY + " Iron=" + IRON_COST_SMITHY);
+            throw new ResourceException("Not enough resources to build a Smithy. Required: Food=" + FOOD_COST_SMITHY + " Wood=" + WOOD_COST_SMITHY + " Iron=" + IRON_COST_SMITHY);
         }
         food = food - FOOD_COST_SMITHY;
         wood = wood - WOOD_COST_SMITHY;
@@ -156,9 +158,9 @@ public class Civilization implements Variables {
         System.out.println("Smithy built! Total smithies: " + smithy);
     }
 
-    public void newMagicTower() throws ResourcesException {
+    public void newMagicTower() throws ResourceException {
         if (food < FOOD_COST_MAGICTOWER || wood < WOOD_COST_MAGICTOWER || iron < IRON_COST_MAGICTOWER) {
-            throw new ResourcesException("Not enough resources to build a Magic Tower. Required: Food=" + FOOD_COST_MAGICTOWER + " Wood=" + WOOD_COST_MAGICTOWER + " Iron=" + IRON_COST_MAGICTOWER);
+            throw new ResourceException("Not enough resources to build a Magic Tower. Required: Food=" + FOOD_COST_MAGICTOWER + " Wood=" + WOOD_COST_MAGICTOWER + " Iron=" + IRON_COST_MAGICTOWER);
         }
         food = food - FOOD_COST_MAGICTOWER;
         wood = wood - WOOD_COST_MAGICTOWER;
@@ -167,9 +169,9 @@ public class Civilization implements Variables {
         System.out.println("Magic Tower built! Total magic towers: " + magicTower);
     }
 
-    public void newChurch() throws ResourcesException {
+    public void newChurch() throws ResourceException {
         if (food < FOOD_COST_CHURCH || wood < WOOD_COST_CHURCH || iron < IRON_COST_CHURCH || mana < MANA_COST_CHURCH) {
-            throw new ResourcesException("Not enough resources to build a Church. Required: Food=" + FOOD_COST_CHURCH + " Wood=" + WOOD_COST_CHURCH + " Iron=" + IRON_COST_CHURCH + " Mana=" + MANA_COST_CHURCH);
+            throw new ResourceException("Not enough resources to build a Church. Required: Food=" + FOOD_COST_CHURCH + " Wood=" + WOOD_COST_CHURCH + " Iron=" + IRON_COST_CHURCH + " Mana=" + MANA_COST_CHURCH);
         }
         food = food - FOOD_COST_CHURCH;
         wood = wood - WOOD_COST_CHURCH;
@@ -183,7 +185,7 @@ public class Civilization implements Variables {
     // TECHNOLOGY UPGRADES
     // -------------------------
 
-    public void upgradeTechnologyDefense() throws ResourcesException {
+    public void upgradeTechnologyDefense() throws ResourceException {
         int ironCost = UPGRADE_BASE_DEFENSE_TECHNOLOGY_IRON_COST
             + (technologyDefense * UPGRADE_PLUS_DEFENSE_TECHNOLOGY_IRON_COST * UPGRADE_BASE_DEFENSE_TECHNOLOGY_IRON_COST / 100);
         int woodCost = UPGRADE_BASE_DEFENSE_TECHNOLOGY_WOOD_COST
@@ -191,7 +193,7 @@ public class Civilization implements Variables {
         int foodCost = UPGRADE_BASE_DEFENSE_TECHNOLOGY_FOOD_COST + (technologyDefense * UPGRADE_PLUS_DEFENSE_TECHNOLOGY_FOOD_COST * UPGRADE_BASE_DEFENSE_TECHNOLOGY_FOOD_COST / 100);
 
         if (iron < ironCost || wood < woodCost || food < foodCost) {
-            throw new ResourcesException("Not enough resources to upgrade Defense Technology. Required: Food=" + foodCost + " Wood=" + woodCost + " Iron=" + ironCost);
+            throw new ResourceException("Not enough resources to upgrade Defense Technology. Required: Food=" + foodCost + " Wood=" + woodCost + " Iron=" + ironCost);
         }
         iron = iron - ironCost;
         wood = wood - woodCost;
@@ -200,7 +202,7 @@ public class Civilization implements Variables {
         System.out.println("Defense Technology upgraded to level " + technologyDefense);
     }
 
-    public void upgradeTechnologyAttack() throws ResourcesException {
+    public void upgradeTechnologyAttack() throws ResourceException {
         int ironCost = UPGRADE_BASE_ATTACK_TECHNOLOGY_IRON_COST
             + (technologyAttack * UPGRADE_PLUS_ATTACK_TECHNOLOGY_IRON_COST * UPGRADE_BASE_ATTACK_TECHNOLOGY_IRON_COST / 100);
         int woodCost = UPGRADE_BASE_ATTACK_TECHNOLOGY_WOOD_COST
@@ -209,7 +211,7 @@ public class Civilization implements Variables {
             + (technologyAttack * UPGRADE_PLUS_ATTACK_TECHNOLOGY_FOOD_COST * UPGRADE_BASE_ATTACK_TECHNOLOGY_FOOD_COST / 100);
 
         if (iron < ironCost || wood < woodCost || food < foodCost) {
-            throw new ResourcesException("Not enough resources to upgrade Attack Technology. Required: Food=" + foodCost + " Wood=" + woodCost + " Iron=" + ironCost);
+            throw new ResourceException("Not enough resources to upgrade Attack Technology. Required: Food=" + foodCost + " Wood=" + woodCost + " Iron=" + ironCost);
         }
         iron = iron - ironCost;
         wood = wood - woodCost;
@@ -247,21 +249,21 @@ public class Civilization implements Variables {
     // ADD UNITS
     // -------------------------
 
-    public void newSwordsman(int n) throws ResourcesException {
+    public void newSwordsman(int n) throws ResourceException {
         int canAfford = howManyCanAfford(n, FOOD_COST_SWORDSMAN, WOOD_COST_SWORDSMAN, IRON_COST_SWORDSMAN, MANA_COST_SWORDSMAN);
         spendResources(canAfford, FOOD_COST_SWORDSMAN, WOOD_COST_SWORDSMAN, IRON_COST_SWORDSMAN, MANA_COST_SWORDSMAN);
         int i = 0;
         while (i < canAfford) {
-            army[0].add(new Swordsman(technologyDefense, technologyAttack));
+        	army[0].add(new Swordsman(technologyDefense, technologyAttack));
             i++;
         }
         if (canAfford < n) {
-            throw new ResourcesException("Not enough resources. Only " + canAfford + " Swordsman added (requested " + n + ").");
+            throw new ResourceException("Not enough resources. Only " + canAfford + " Swordsman added (requested " + n + ").");
         }
         System.out.println(canAfford + " Swordsman added.");
     }
 
-    public void newSpearman(int n) throws ResourcesException {
+    public void newSpearman(int n) throws ResourceException {
         int canAfford = howManyCanAfford(n, FOOD_COST_SPEARMAN, WOOD_COST_SPEARMAN, IRON_COST_SPEARMAN, MANA_COST_SPEARMAN);
         spendResources(canAfford, FOOD_COST_SPEARMAN, WOOD_COST_SPEARMAN, IRON_COST_SPEARMAN, MANA_COST_SPEARMAN);
         int i = 0;
@@ -270,12 +272,12 @@ public class Civilization implements Variables {
             i++;
         }
         if (canAfford < n) {
-            throw new ResourcesException("Not enough resources. Only " + canAfford + " Spearman added (requested " + n + ").");
+            throw new ResourceException("Not enough resources. Only " + canAfford + " Spearman added (requested " + n + ").");
         }
         System.out.println(canAfford + " Spearman added.");
     }
 
-    public void newCrossbow(int n) throws ResourcesException {
+    public void newCrossbow(int n) throws ResourceException {
         int canAfford = howManyCanAfford(n, FOOD_COST_CROSSBOW, WOOD_COST_CROSSBOW, IRON_COST_CROSSBOW, MANA_COST_CROSSBOW);
         spendResources(canAfford, FOOD_COST_CROSSBOW, WOOD_COST_CROSSBOW, IRON_COST_CROSSBOW, MANA_COST_CROSSBOW);
         int i = 0;
@@ -284,12 +286,12 @@ public class Civilization implements Variables {
             i++;
         }
         if (canAfford < n) {
-            throw new ResourcesException("Not enough resources. Only " + canAfford + " Crossbow added (requested " + n + ").");
+            throw new ResourceException("Not enough resources. Only " + canAfford + " Crossbow added (requested " + n + ").");
         }
         System.out.println(canAfford + " Crossbow added.");
     }
 
-    public void newCannon(int n) throws ResourcesException {
+    public void newCannon(int n) throws ResourceException {
         int canAfford = howManyCanAfford(n, FOOD_COST_CANNON, WOOD_COST_CANNON, IRON_COST_CANNON, MANA_COST_CANNON);
         spendResources(canAfford, FOOD_COST_CANNON, WOOD_COST_CANNON, IRON_COST_CANNON, MANA_COST_CANNON);
         int i = 0;
@@ -298,12 +300,12 @@ public class Civilization implements Variables {
             i++;
         }
         if (canAfford < n) {
-            throw new ResourcesException("Not enough resources. Only " + canAfford + " Cannon added (requested " + n + ").");
+            throw new ResourceException("Not enough resources. Only " + canAfford + " Cannon added (requested " + n + ").");
         }
         System.out.println(canAfford + " Cannon added.");
     }
 
-    public void newArrowTower(int n) throws ResourcesException {
+    public void newArrowTower(int n) throws ResourceException {
         int canAfford = howManyCanAfford(n, FOOD_COST_ARROWTOWER, WOOD_COST_ARROWTOWER, IRON_COST_ARROWTOWER, MANA_COST_ARROWTOWER);
         spendResources(canAfford, FOOD_COST_ARROWTOWER, WOOD_COST_ARROWTOWER, IRON_COST_ARROWTOWER, MANA_COST_ARROWTOWER);
         int i = 0;
@@ -312,12 +314,12 @@ public class Civilization implements Variables {
             i++;
         }
         if (canAfford < n) {
-            throw new ResourcesException("Not enough resources. Only " + canAfford + " Arrow Tower added (requested " + n + ").");
+            throw new ResourceException("Not enough resources. Only " + canAfford + " Arrow Tower added (requested " + n + ").");
         }
         System.out.println(canAfford + " Arrow Tower added.");
     }
 
-    public void newCatapult(int n) throws ResourcesException {
+    public void newCatapult(int n) throws ResourceException {
         int canAfford = howManyCanAfford(n, FOOD_COST_CATAPULT, WOOD_COST_CATAPULT, IRON_COST_CATAPULT, MANA_COST_CATAPULT);
         spendResources(canAfford, FOOD_COST_CATAPULT, WOOD_COST_CATAPULT, IRON_COST_CATAPULT, MANA_COST_CATAPULT);
         int i = 0;
@@ -326,12 +328,12 @@ public class Civilization implements Variables {
             i++;
         }
         if (canAfford < n) {
-            throw new ResourcesException("Not enough resources. Only " + canAfford + " Catapult added (requested " + n + ").");
+            throw new ResourceException("Not enough resources. Only " + canAfford + " Catapult added (requested " + n + ").");
         }
         System.out.println(canAfford + " Catapult added.");
     }
 
-    public void newRocketLauncher(int n) throws ResourcesException {
+    public void newRocketLauncher(int n) throws ResourceException {
         int canAfford = howManyCanAfford(n, FOOD_COST_ROCKETLAUNCHERTOWER, WOOD_COST_ROCKETLAUNCHERTOWER, IRON_COST_ROCKETLAUNCHERTOWER, MANA_COST_ROCKETLAUNCHERTOWER);
         spendResources(canAfford, FOOD_COST_ROCKETLAUNCHERTOWER, WOOD_COST_ROCKETLAUNCHERTOWER, IRON_COST_ROCKETLAUNCHERTOWER, MANA_COST_ROCKETLAUNCHERTOWER);
         int i = 0;
@@ -340,12 +342,12 @@ public class Civilization implements Variables {
             i++;
         }
         if (canAfford < n) {
-            throw new ResourcesException("Not enough resources. Only " + canAfford + " Rocket Launcher Tower added (requested " + n + ").");
+            throw new ResourceException("Not enough resources. Only " + canAfford + " Rocket Launcher Tower added (requested " + n + ").");
         }
         System.out.println(canAfford + " Rocket Launcher Tower added.");
     }
 
-    public void newMagician(int n) throws ResourcesException, BuildingException {
+    public void newMagician(int n) throws ResourceException, BuildingException {
         if (magicTower < 1) {
             throw new BuildingException("You need at least 1 Magic Tower to create Magicians.");
         }
@@ -357,12 +359,12 @@ public class Civilization implements Variables {
             i++;
         }
         if (canAfford < n) {
-            throw new ResourcesException("Not enough resources. Only " + canAfford + " Magician added (requested " + n + ").");
+            throw new ResourceException("Not enough resources. Only " + canAfford + " Magician added (requested " + n + ").");
         }
         System.out.println(canAfford + " Magician added.");
     }
 
-    public void newPriest(int n) throws ResourcesException, BuildingException {
+    public void newPriest(int n) throws ResourceException, BuildingException {
         if (church < 1) {
             throw new BuildingException("You need at least 1 Church to create Priests.");
         }
@@ -383,7 +385,7 @@ public class Civilization implements Variables {
             i++;
         }
         if (canAfford < n) {
-            throw new ResourcesException("Not enough resources or churches. Only " + canAfford + " Priest added (requested " + n + ").");
+            throw new ResourceException("Not enough resources or churches. Only " + canAfford + " Priest added (requested " + n + ").");
         }
         System.out.println(canAfford + " Priest added.");
     }
