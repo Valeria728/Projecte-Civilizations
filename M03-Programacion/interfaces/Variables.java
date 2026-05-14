@@ -1,0 +1,214 @@
+package interfaces;
+
+public interface Variables {
+
+    // Resources to create the first enemy army
+    int IRON_BASE_ENEMY_ARMY = 26000;
+    int WOOD_BASE_ENEMY_ARMY = 180000;
+    int FOOD_BASE_ENEMY_ARMY = 70000;
+
+    // Percentage increase of resources for enemy fleet each battle
+    int ENEMY_FLEET_INCREASE = 6;
+
+    // Resources generated every minute by civilization
+    int CIVILIZATION_IRON_GENERATED = 1500;
+    int CIVILIZATION_WOOD_GENERATED = 5000;
+    int CIVILIZATION_FOOD_GENERATED = 8000;
+
+    int CIVILIZATION_IRON_GENERATED_PER_SMITHY = (int)(0.5 * CIVILIZATION_IRON_GENERATED);
+    int CIVILIZATION_WOOD_GENERATED_PER_CARPENTRY = (int)(0.5 * CIVILIZATION_WOOD_GENERATED);
+    int CIVILIZATION_FOOD_GENERATED_PER_FARM = (int)(0.5 * CIVILIZATION_FOOD_GENERATED);
+    int CIVILIZATION_MANA_GENERATED_PER_MAGIC_TOWER = 10;
+
+    // Technology upgrade costs (base)
+    int UPGRADE_BASE_DEFENSE_TECHNOLOGY_IRON_COST = 2000;
+    int UPGRADE_BASE_ATTACK_TECHNOLOGY_IRON_COST = 2000;
+    int UPGRADE_BASE_DEFENSE_TECHNOLOGY_WOOD_COST = 0;
+    int UPGRADE_BASE_ATTACK_TECHNOLOGY_WOOD_COST = 0;
+    int UPGRADE_BASE_DEFENSE_TECHNOLOGY_FOOD_COST = 100;
+    int UPGRADE_BASE_ATTACK_TECHNOLOGY_FOOD_COST = 100;
+
+    // Technology upgrade cost increase percentage per level
+    int UPGRADE_PLUS_DEFENSE_TECHNOLOGY_IRON_COST = 20;
+    int UPGRADE_PLUS_ATTACK_TECHNOLOGY_IRON_COST = 20;
+    int UPGRADE_PLUS_DEFENSE_TECHNOLOGY_WOOD_COST = 15;
+    int UPGRADE_PLUS_ATTACK_TECHNOLOGY_WOOD_COST = 15;
+    int UPGRADE_PLUS_DEFENSE_TECHNOLOGY_FOOD_COST = 10;
+    int UPGRADE_PLUS_ATTACK_TECHNOLOGY_FOOD_COST = 10;
+
+    // Attack unit costs
+    int FOOD_COST_SWORDSMAN = 8000;
+    int FOOD_COST_SPEARMAN = 5000;
+    int FOOD_COST_CROSSBOW = 0;
+    int FOOD_COST_CANNON = 0;
+
+    int WOOD_COST_SWORDSMAN = 3000;
+    int WOOD_COST_SPEARMAN = 6500;
+    int WOOD_COST_CROSSBOW = 45000;
+    int WOOD_COST_CANNON = 30000;
+
+    int IRON_COST_SWORDSMAN = 50;
+    int IRON_COST_SPEARMAN = 50;
+    int IRON_COST_CROSSBOW = 7000;
+    int IRON_COST_CANNON = 15000;
+
+    int MANA_COST_SWORDSMAN = 0;
+    int MANA_COST_SPEARMAN = 0;
+    int MANA_COST_CROSSBOW = 0;
+    int MANA_COST_CANNON = 0;
+
+    // Defense unit costs
+    int IRON_COST_ARROWTOWER = 0;
+    int IRON_COST_CATAPULT = 500;
+    int IRON_COST_ROCKETLAUNCHERTOWER = 5000;
+
+    int WOOD_COST_ARROWTOWER = 2000;
+    int WOOD_COST_CATAPULT = 4000;
+    int WOOD_COST_ROCKETLAUNCHERTOWER = 50000;
+
+    int FOOD_COST_ARROWTOWER = 0;
+    int FOOD_COST_CATAPULT = 0;
+    int FOOD_COST_ROCKETLAUNCHERTOWER = 0;
+
+    int MANA_COST_ARROWTOWER = 0;
+    int MANA_COST_CATAPULT = 0;
+    int MANA_COST_ROCKETLAUNCHERTOWER = 0;
+
+    // Special unit costs
+    int FOOD_COST_MAGICIAN = 12000;
+    int FOOD_COST_PRIEST = 15000;
+
+    int WOOD_COST_MAGICIAN = 2000;
+    int WOOD_COST_PRIEST = 0;
+
+    int IRON_COST_MAGICIAN = 500;
+    int IRON_COST_PRIEST = 0;
+
+    int MANA_COST_MAGICIAN = 5000;
+    int MANA_COST_PRIEST = 15000;
+
+    // Building costs
+    int FOOD_COST_FARM = 5000;
+    int WOOD_COST_FARM = 10000;
+    int IRON_COST_FARM = 12000;
+
+    int FOOD_COST_CARPENTRY = 5000;
+    int WOOD_COST_CARPENTRY = 10000;
+    int IRON_COST_CARPENTRY = 12000;
+
+    int FOOD_COST_SMITHY = 5000;
+    int WOOD_COST_SMITHY = 10000;
+    int IRON_COST_SMITHY = 12000;
+
+    int FOOD_COST_CHURCH = 10000;
+    int WOOD_COST_CHURCH = 20000;
+    int IRON_COST_CHURCH = 24000;
+    int MANA_COST_CHURCH = 10000;
+
+    int FOOD_COST_MAGICTOWER = 10000;
+    int WOOD_COST_MAGICTOWER = 20000;
+    int IRON_COST_MAGICTOWER = 24000;
+
+    // Base damage - attack units
+    int BASE_DAMAGE_SWORDSMAN = 80;
+    int BASE_DAMAGE_SPEARMAN = 150;
+    int BASE_DAMAGE_CROSSBOW = 1000;
+    int BASE_DAMAGE_CANNON = 700;
+
+    // Base damage - defense units
+    int BASE_DAMAGE_ARROWTOWER = 80;
+    int BASE_DAMAGE_CATAPULT = 250;
+    int BASE_DAMAGE_ROCKETLAUNCHERTOWER = 2000;
+
+    // Base damage - special units
+    int BASE_DAMAGE_MAGICIAN = 3000;
+    int BASE_DAMAGE_PRIEST = 0;
+
+    // Armor - attack units
+    int ARMOR_SWORDSMAN = 400;
+    int ARMOR_SPEARMAN = 1000;
+    int ARMOR_CROSSBOW = 6000;
+    int ARMOR_CANNON = 8000;
+
+    // Armor - defense units
+    int ARMOR_ARROWTOWER = 200;
+    int ARMOR_CATAPULT = 1200;
+    int ARMOR_ROCKETLAUNCHERTOWER = 7000;
+
+    // Armor increase % per tech level - attack units
+    int PLUS_ARMOR_SWORDSMAN_BY_TECHNOLOGY = 5;
+    int PLUS_ARMOR_SPEARMAN_BY_TECHNOLOGY = 5;
+    int PLUS_ARMOR_CROSSBOW_BY_TECHNOLOGY = 5;
+    int PLUS_ARMOR_CANNON_BY_TECHNOLOGY = 5;
+
+    // Armor increase % per tech level - defense units
+    int PLUS_ARMOR_ARROWTOWER_BY_TECHNOLOGY = 5;
+    int PLUS_ARMOR_CATAPULT_BY_TECHNOLOGY = 5;
+    int PLUS_ARMOR_ROCKETLAUNCHERTOWER_BY_TECHNOLOGY = 5;
+
+    // Attack power increase % per tech level - attack units
+    int PLUS_ATTACK_SWORDSMAN_BY_TECHNOLOGY = 5;
+    int PLUS_ATTACK_SPEARMAN_BY_TECHNOLOGY = 5;
+    int PLUS_ATTACK_CROSSBOW_BY_TECHNOLOGY = 5;
+    int PLUS_ATTACK_CANNON_BY_TECHNOLOGY = 5;
+
+    // Attack power increase % per tech level - defense units
+    int PLUS_ATTACK_ARROWTOWER_BY_TECHNOLOGY = 5;
+    int PLUS_ATTACK_CATAPULT_BY_TECHNOLOGY = 5;
+    int PLUS_ATTACK_ROCKETLAUNCHERTOWER_BY_TECHNOLOGY = 5;
+    int PLUS_ATTACK_MAGICIAN_BY_TECHNOLOGY = 6;
+
+    // Experience bonuses
+    int PLUS_ARMOR_UNIT_PER_EXPERIENCE_POINT = 4;
+    int PLUS_ATTACK_UNIT_PER_EXPERIENCE_POINT = 4;
+
+    // Sanctify bonuses
+    int PLUS_ARMOR_UNIT_SANCTIFIED = 7;
+    int PLUS_ATTACK_UNIT_SANCTIFIED = 7;
+
+    // Chance of resurrection by magician
+    int CHANCE_MAGICIAN_RESSURECT = 2;
+
+    // Waste generation chances - attack units
+    int CHANCE_GENERATNG_WASTE_SWORDSMAN = 55;
+    int CHANCE_GENERATNG_WASTE_SPEARMAN = 65;
+    int CHANCE_GENERATNG_WASTE_CROSSBOW = 80;
+    int CHANCE_GENERATNG_WASTE_CANNON = 90;
+
+    // Waste generation chances - defense units
+    int CHANCE_GENERATNG_WASTE_ARROWTOWER = 55;
+    int CHANCE_GENERATNG_WASTE_CATAPULT = 65;
+    int CHANCE_GENERATNG_WASTE_ROCKETLAUNCHERTOWER = 75;
+
+    // Waste generation chances - special units
+    int CHANCE_GENERATNG_WASTE_PRIEST = 0;
+    int CHANCE_GENERATNG_WASTE_MAGICIAN = 0;
+
+    // Chance to attack again - attack units
+    int CHANCE_ATTACK_AGAIN_SWORDSMAN = 3;
+    int CHANCE_ATTACK_AGAIN_SPEARMAN = 7;
+    int CHANCE_ATTACK_AGAIN_CROSSBOW = 45;
+    int CHANCE_ATTACK_AGAIN_CANNON = 70;
+
+    // Chance to attack again - defense units
+    int CHANCE_ATTACK_AGAIN_ARROWTOWER = 5;
+    int CHANCE_ATTACK_AGAIN_CATAPULT = 12;
+    int CHANCE_ATTACK_AGAIN_ROCKETLAUNCHERTOWER = 30;
+
+    // Chance to attack again - special units
+    int CHANCE_ATTACK_AGAIN_MAGICIAN = 75;
+    int CHANCE_ATTACK_AGAIN_PRIEST = 0;
+
+    // Attack probability arrays
+    // Order: SWORDSMAN, SPEARMAN, CROSSBOW, CANNON, ARROWTOWER, CATAPULT, ROCKETLAUNCHERTOWER, MAGICIAN, PRIEST
+    int[] CHANCE_ATTACK_CIVILIZATION_UNITS = {4, 9, 13, 37, 4, 9, 14, 10, 0};
+
+    // Order: SWORDSMAN, SPEARMAN, CROSSBOW, CANNON
+    int[] CHANCE_ATTACK_ENEMY_UNITS = {10, 20, 30, 40};
+
+    // Percentage of unit cost converted to waste
+    int PERCENTATGE_WASTE = 70;
+
+    // Battle end condition: battle ends when an army drops below this % of initial units
+    int BATTLE_END_PERCENTAGE = 20;
+}
