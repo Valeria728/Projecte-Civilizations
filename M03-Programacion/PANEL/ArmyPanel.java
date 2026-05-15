@@ -9,9 +9,7 @@ import game.Civilization;
 import java.awt.*;
 import java.awt.event.*;
 
-/**
- * Panel para crear nuevas unidades militares.
- */
+//Panel para crear nuevas unidades militares.
 public class ArmyPanel extends JPanel {
 
     private Civilization civ;

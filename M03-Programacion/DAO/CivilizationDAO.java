@@ -22,10 +22,9 @@ import units.attack.Swordsman;
 import java.sql.*;
 import java.util.ArrayList;
 
-/**
- * DAO (Data Access Object) para la clase Civilization.
- * Se encarga de guardar y cargar el estado de la civilización en la base de datos.
- */
+//DAO (Data Access Object) para la clase Civilization.
+//Se encarga de guardar y cargar el estado de la civilización en la base de datos.
+
 public class CivilizationDAO {
 
     private Connection con;

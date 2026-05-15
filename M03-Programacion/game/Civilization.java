@@ -1,22 +1,13 @@
 package game;
 
-import interfaces.Variables;
-import units.AttackUnit;
-import units.DefenseUnit;
-import units.attack.Cannon;
-import units.attack.Crossbow;
-import units.attack.Spearman;
-import units.attack.Swordsman;
-//import units.special.Magician;
-//import units.special.Priest;
+import interfaces.*;
+import units.*;
+import units.attack.*;
 
 import java.util.ArrayList;
 
 import units.defense.*;
-import units.defense.ArrowTower;
-import interfaces.MilitaryUnit;
-import exceptions.BuildingException;
-import exceptions.ResourceException;
+import exceptions.*;
 import units.special.*;
 public class Civilization implements Variables {
 
@@ -72,43 +63,96 @@ public class Civilization implements Variables {
     // GETTERS & SETTERS
     // -------------------------
 
-    public int getTechnologyDefense() { return technologyDefense; }
-    public void setTechnologyDefense(int technologyDefense) { this.technologyDefense = technologyDefense; }
+    public int getTechnologyDefense() { 
+    	return technologyDefense; 
+    }
+    public void setTechnologyDefense(int technologyDefense) { 
+    	this.technologyDefense = technologyDefense; 
+    }
 
-    public int getTechnologyAttack() { return technologyAttack; }
-    public void setTechnologyAttack(int technologyAttack) { this.technologyAttack = technologyAttack; }
+    
+    public int getTechnologyAttack() { 
+    	return technologyAttack; 
+    }
+    public void setTechnologyAttack(int technologyAttack) { 
+    	this.technologyAttack = technologyAttack; 
+    }
 
-    public int getWood() { return wood; }
-    public void setWood(int wood) { this.wood = wood; }
+    
+    public int getWood() { 
+    	return wood; 
+    }
+    public void setWood(int wood) { 
+    	this.wood = wood; 
+    }
 
-    public int getIron() { return iron; }
-    public void setIron(int iron) { this.iron = iron; }
+    
+    public int getIron() { 
+    	return iron; 
+    }
+    public void setIron(int iron) { 
+    	this.iron = iron; 
+    }
 
-    public int getFood() { return food; }
-    public void setFood(int food) { this.food = food; }
+    public int getFood() { 
+    	return food; 
+    	}
+    public void setFood(int food) { 
+    	this.food = food; 
+    }
 
-    public int getMana() { return mana; }
-    public void setMana(int mana) { this.mana = mana; }
+    public int getMana() { 
+    	return mana; 
+    }
+    public void setMana(int mana) { 
+    	this.mana = mana;
+    }
 
-    public int getMagicTower() { return magicTower; }
-    public void setMagicTower(int magicTower) { this.magicTower = magicTower; }
+    public int getMagicTower() { 
+    	return magicTower; 
+    }
+    public void setMagicTower(int magicTower) { 
+    	this.magicTower = magicTower; 
+    }
 
-    public int getChurch() { return church; }
-    public void setChurch(int church) { this.church = church; }
+    public int getChurch() { 
+    	return church; 
+    }
+    public void setChurch(int church) { 
+    	this.church = church; 
+    }
 
-    public int getFarm() { return farm; }
-    public void setFarm(int farm) { this.farm = farm; }
+    public int getFarm() { 
+    	return farm; 
+    }
+    public void setFarm(int farm) { 
+    	this.farm = farm; 
+    }
 
-    public int getSmithy() { return smithy; }
-    public void setSmithy(int smithy) { this.smithy = smithy; }
+    public int getSmithy() { 
+    	return smithy; 
+    }
+    public void setSmithy(int smithy) { 
+    	this.smithy = smithy; 
+    }
 
-    public int getCarpentry() { return carpentry; }
-    public void setCarpentry(int carpentry) { this.carpentry = carpentry; }
+    public int getCarpentry() { 
+    	return carpentry; 
+    }
+    public void setCarpentry(int carpentry) { 
+    	this.carpentry = carpentry; 
+    }
 
-    public int getBattles() { return battles; }
-    public void setBattles(int battles) { this.battles = battles; }
+    public int getBattles() { 
+    	return battles; 
+    }
+    public void setBattles(int battles) { 
+    	this.battles = battles; 
+    }
 
-    public ArrayList<MilitaryUnit>[] getArmy() { return army; }
+    public ArrayList<MilitaryUnit>[] getArmy() { 
+    	return army; 
+    }
 
     // -------------------------
     // RESOURCE GENERATION
