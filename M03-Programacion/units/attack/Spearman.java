@@ -15,24 +15,38 @@ public class Spearman extends AttackUnit {
         super(ARMOR_SPEARMAN, BASE_DAMAGE_SPEARMAN);
     }
 
-    @Override
-    public int getFoodCost() { return FOOD_COST_SPEARMAN; }
+    
+    public int getFoodCost() { 
+    	return FOOD_COST_SPEARMAN; 
+    }
 
-    @Override
-    public int getWoodCost() { return WOOD_COST_SPEARMAN; }
+    
+    public int getWoodCost() { 
+    	return WOOD_COST_SPEARMAN; 
+    }
 
-    @Override
-    public int getIronCost() { return IRON_COST_SPEARMAN; }
+    
+    public int getIronCost() { 
+    	return IRON_COST_SPEARMAN; 
+    }
 
-    @Override
-    public int getManaCost() { return MANA_COST_SPEARMAN; }
+    
+    public int getManaCost() { 
+    	return MANA_COST_SPEARMAN; 
+    }
 
-    @Override
-    public int getChanceGeneratingWaste() { return CHANCE_GENERATNG_WASTE_SPEARMAN; }
+    
+    public int getChanceGeneratingWaste() { 
+    	return CHANCE_GENERATNG_WASTE_SPEARMAN;
+    }
 
-    @Override
-    public int getChanceAttackAgain() { return CHANCE_ATTACK_AGAIN_SPEARMAN; }
+    
+    public int getChanceAttackAgain() { 
+    	return CHANCE_ATTACK_AGAIN_SPEARMAN; 
+    }
 
-    @Override
-    public String toString() { return "Spearman"; }
+    
+    public String toString() { 
+    	return "Spearman"; 
+    }
 }

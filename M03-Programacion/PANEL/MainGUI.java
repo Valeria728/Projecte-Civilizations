@@ -15,10 +15,9 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.ArrayList;
 
-/**
- * Ventana principal del juego Civilizations.
- * Usa JTabbedPane para organizar las secciones.
- */
+// Ventana principal del juego Civilizations.
+// Usa JTabbedPane para organizar las secciones.
+
 public class MainGUI extends JFrame implements Variables {
 
     private Civilization civilization;
@@ -65,7 +64,7 @@ public class MainGUI extends JFrame implements Variables {
 
     private void initUI() {
         setTitle("Civilizations - Projecte AMS i AWS curs 25-26");
-        setSize(1000, 700); // Un poco más grande para que luzca mejor
+        setSize(1000, 700);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
@@ -317,8 +316,8 @@ public class MainGUI extends JFrame implements Variables {
         JTextArea ta = new JTextArea(report);
         ta.setFont(new Font("Monospaced", Font.BOLD, 13));
         ta.setEditable(false);
-        ta.setBackground(new Color(10, 15, 10)); // Fondo verde muy oscuro
-        ta.setForeground(new Color(50, 255, 50));  // Letras verdes "Matrix"
+        ta.setBackground(new Color(10, 15, 10));
+        ta.setForeground(new Color(50, 255, 50)); 
         
         JScrollPane sp = new JScrollPane(ta);
         sp.setPreferredSize(new Dimension(700, 450));
@@ -337,8 +336,8 @@ public class MainGUI extends JFrame implements Variables {
             JTextArea dev = new JTextArea(development);
             dev.setFont(new Font("Monospaced", Font.PLAIN, 12));
             dev.setEditable(false);
-            dev.setBackground(new Color(20, 15, 5));  // Fondo marrón muy oscuro
-            dev.setForeground(new Color(255, 180, 50)); // Letras ámbar
+            dev.setBackground(new Color(20, 15, 5)); 
+            dev.setForeground(new Color(255, 180, 50));
             
             JScrollPane spDev = new JScrollPane(dev);
             spDev.setPreferredSize(new Dimension(750, 500));

@@ -17,24 +17,38 @@ public class Swordsman extends AttackUnit {
         super(ARMOR_SWORDSMAN, BASE_DAMAGE_SWORDSMAN);
     }
 
-    @Override
-    public int getFoodCost() { return FOOD_COST_SWORDSMAN; }
+    
+    public int getFoodCost() { 
+    	return FOOD_COST_SWORDSMAN; 
+    }
 
-    @Override
-    public int getWoodCost() { return WOOD_COST_SWORDSMAN; }
+    
+    public int getWoodCost() { 
+    	return WOOD_COST_SWORDSMAN; 
+    }
 
-    @Override
-    public int getIronCost() { return IRON_COST_SWORDSMAN; }
+    
+    public int getIronCost() { 
+    	return IRON_COST_SWORDSMAN;
+    }
 
-    @Override
-    public int getManaCost() { return MANA_COST_SWORDSMAN; }
+    
+    public int getManaCost() { 
+    	return MANA_COST_SWORDSMAN; 
+    }
 
-    @Override
-    public int getChanceGeneratingWaste() { return CHANCE_GENERATNG_WASTE_SWORDSMAN; }
+    
+    public int getChanceGeneratingWaste() { 
+    	return CHANCE_GENERATNG_WASTE_SWORDSMAN; 
+    }
 
-    @Override
-    public int getChanceAttackAgain() { return CHANCE_ATTACK_AGAIN_SWORDSMAN; }
+    
+    public int getChanceAttackAgain() { 
+    	return CHANCE_ATTACK_AGAIN_SWORDSMAN; 
+    }
 
-    @Override
-    public String toString() { return "Swordsman"; }
+    
+    public String toString() { 
+    	return "Swordsman"; 
+    }
 }

@@ -4,10 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/**
- * Clase singleton para gestionar la conexión a la base de datos.
- * Solo crea una conexión y la reutiliza siempre.
- */
+// Clase singleton para gestionar la conexión a la base de datos.
+//Solo crea una conexión y la reutiliza siempre.
+
 public class DatabaseConnection {
 
     private static Connection connection = null;

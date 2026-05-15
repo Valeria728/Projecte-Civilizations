@@ -15,24 +15,38 @@ public class Crossbow extends AttackUnit {
         super(ARMOR_CROSSBOW, BASE_DAMAGE_CROSSBOW);
     }
 
-    @Override
-    public int getFoodCost() { return FOOD_COST_CROSSBOW; }
+    
+    public int getFoodCost() { 
+    	return FOOD_COST_CROSSBOW; 
+    }
 
-    @Override
-    public int getWoodCost() { return WOOD_COST_CROSSBOW; }
+    
+    public int getWoodCost() { 
+    	return WOOD_COST_CROSSBOW; 
+    }
 
-    @Override
-    public int getIronCost() { return IRON_COST_CROSSBOW; }
+    
+    public int getIronCost() { 
+    	return IRON_COST_CROSSBOW; 
+    }
 
-    @Override
-    public int getManaCost() { return MANA_COST_CROSSBOW; }
+    
+    public int getManaCost() { 
+    	return MANA_COST_CROSSBOW; 
+    }
 
-    @Override
-    public int getChanceGeneratingWaste() { return CHANCE_GENERATNG_WASTE_CROSSBOW; }
+    
+    public int getChanceGeneratingWaste() { 
+    	return CHANCE_GENERATNG_WASTE_CROSSBOW; 
+    }
 
-    @Override
-    public int getChanceAttackAgain() { return CHANCE_ATTACK_AGAIN_CROSSBOW; }
+    
+    public int getChanceAttackAgain() {
+    	return CHANCE_ATTACK_AGAIN_CROSSBOW; 
+    }
 
-    @Override
-    public String toString() { return "Crossbow"; }
+    
+    public String toString() { 
+    	return "Crossbow"; 
+    }
 }

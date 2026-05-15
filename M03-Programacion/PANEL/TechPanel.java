@@ -9,9 +9,8 @@ import game.Civilization;
 import java.awt.*;
 import java.awt.event.*;
 
-/**
- * Panel para mejorar las tecnologías de ataque y defensa.
- */
+// Panel para mejorar las tecnologías de ataque y defensa.
+
 public class TechPanel extends JPanel {
 
     private Civilization civ;

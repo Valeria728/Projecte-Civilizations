@@ -10,24 +10,38 @@ public class Catapult extends DefenseUnit {
         );
     }
 
-    @Override
-    public int getFoodCost() { return FOOD_COST_CATAPULT; }
+    
+    public int getFoodCost() { 
+    	return FOOD_COST_CATAPULT; 
+    }
 
-    @Override
-    public int getWoodCost() { return WOOD_COST_CATAPULT; }
+    
+    public int getWoodCost() { 
+    	return WOOD_COST_CATAPULT; 
+    }
 
-    @Override
-    public int getIronCost() { return IRON_COST_CATAPULT; }
+    
+    public int getIronCost() { 
+    	return IRON_COST_CATAPULT; 
+    }
 
-    @Override
-    public int getManaCost() { return MANA_COST_CATAPULT; }
+    
+    public int getManaCost() { 
+    	return MANA_COST_CATAPULT; 
+    }
 
-    @Override
-    public int getChanceGeneratingWaste() { return CHANCE_GENERATNG_WASTE_CATAPULT; }
+    
+    public int getChanceGeneratingWaste() { 
+    	return CHANCE_GENERATNG_WASTE_CATAPULT; 
+    }
 
-    @Override
-    public int getChanceAttackAgain() { return CHANCE_ATTACK_AGAIN_CATAPULT; }
+    
+    public int getChanceAttackAgain() { 
+    	return CHANCE_ATTACK_AGAIN_CATAPULT; 
+    }
 
-    @Override
-    public String toString() { return "Catapult"; }
+    
+    public String toString() { 
+    	return "Catapult";
+    }
 }
