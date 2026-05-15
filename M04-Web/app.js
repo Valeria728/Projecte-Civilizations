@@ -159,9 +159,9 @@ app.get('/civilizacion', (req, res) => {
 
 app.get('/programadores', (req, res) => {
     const programadores = [
-        { nombre: 'Valeria', rol: 'Programador Java', tareas: ['Clase Civilization y excepciones', 'Clases de unidades de ataque', 'Interface MilitaryUnit y Variables'] },
-        { nombre: 'Miguel', rol: 'Programador Java', tareas: ['Clase Battle', 'Clases de unidades defensivas y especiales', 'Clase Main y TimerTask'] },
-        { nombre: 'Diego', rol: 'Base de datos y Web', tareas: ['Script SQL y DAOs', 'Servidor Node.js y páginas HBS', 'CSS y diseño responsive'] }
+        { nombre: 'Valeria', rol: 'Programador Java',foto: "img/knight.png", tareas: ['Clase Civilization y excepciones', 'Clases de unidades de ataque', 'Interface MilitaryUnit y Variables'] },
+        { nombre: 'Miguel', rol: 'Programador Java',foto: "img/miguel.png",tareas: ['Clase Battle', 'Clases de unidades defensivas y especiales', 'Clase Main y TimerTask'] },
+        { nombre: 'Diego', rol: 'Ptogramador Java',foto: "img/soldier.png", tareas: ['Script SQL y DAOs', 'Servidor Node.js y páginas HBS', 'CSS y diseño responsive'] }
     ];
     res.render('programadores', { programadores });
 });
