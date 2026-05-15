@@ -5,9 +5,8 @@ import java.util.ArrayList;
 
 import game.Battle;
 
-/**
- * DAO para guardar y recuperar resultados de batallas.
- */
+// DAO para guardar y recuperar resultados de batallas.
+
 public class BattleDAO {
 
     private Connection con;

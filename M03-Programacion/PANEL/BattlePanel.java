@@ -8,9 +8,8 @@ import DAO.BattleDAO;
 import java.awt.*;
 import java.awt.event.*;
 
-/**
- * Panel para ver el historial de batallas y sus informes.
- */
+//Panel para ver el historial de batallas y sus informes.
+
 public class BattlePanel extends JPanel {
 
     private BattleDAO battleDAO;

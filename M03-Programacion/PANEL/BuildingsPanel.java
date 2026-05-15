@@ -8,9 +8,7 @@ import game.Civilization;
 import java.awt.*;
 import java.awt.event.*;
 
-/**
- * Panel para construir edificios (Granja, Herrería, Carpintería, Torre Mágica, Iglesia).
- */
+// Panel para construir edificios (Granja, Herrería, Carpintería, Torre Mágica, Iglesia).
 public class BuildingsPanel extends JPanel {
 
     private Civilization civ;

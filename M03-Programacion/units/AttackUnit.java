@@ -1,7 +1,6 @@
 package units;
 
-import interfaces.MilitaryUnit;
-import interfaces.Variables;
+import interfaces.*;
 
 public abstract class AttackUnit implements MilitaryUnit, Variables {
 
@@ -20,7 +19,7 @@ public abstract class AttackUnit implements MilitaryUnit, Variables {
         this.sanctified = false;
     }
 
-    @Override
+    
     public int attack() {
         int damage = baseDamage;
         // experience bonus
@@ -32,27 +31,27 @@ public abstract class AttackUnit implements MilitaryUnit, Variables {
         return damage;
     }
 
-    @Override
+    
     public void takeDamage(int receivedDamage) {
         armor = armor - receivedDamage;
     }
 
-    @Override
+    
     public int getActualArmor() {
         return armor;
     }
 
-    @Override
+    
     public void resetArmor() {
         armor = initialArmor;
     }
 
-    @Override
+    
     public void setExperience(int n) {
         experience = n;
     }
 
-    @Override
+    
     public int getExperience() {
         return experience;
     }

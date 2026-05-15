@@ -9,24 +9,38 @@ public class RocketLauncherTower extends DefenseUnit {
         );
     }
 
-    @Override
-    public int getFoodCost() { return FOOD_COST_ROCKETLAUNCHERTOWER; }
+    
+    public int getFoodCost() { 
+    	return FOOD_COST_ROCKETLAUNCHERTOWER; 
+    }
 
-    @Override
-    public int getWoodCost() { return WOOD_COST_ROCKETLAUNCHERTOWER; }
+    
+    public int getWoodCost() { 
+    	return WOOD_COST_ROCKETLAUNCHERTOWER; 
+    }
 
-    @Override
-    public int getIronCost() { return IRON_COST_ROCKETLAUNCHERTOWER; }
+    
+    public int getIronCost() { 
+    	return IRON_COST_ROCKETLAUNCHERTOWER; 
+    }
 
-    @Override
-    public int getManaCost() { return MANA_COST_ROCKETLAUNCHERTOWER; }
+    
+    public int getManaCost() { 
+    	return MANA_COST_ROCKETLAUNCHERTOWER; 
+    }
 
-    @Override
-    public int getChanceGeneratingWaste() { return CHANCE_GENERATNG_WASTE_ROCKETLAUNCHERTOWER; }
+    
+    public int getChanceGeneratingWaste() { 
+    	return CHANCE_GENERATNG_WASTE_ROCKETLAUNCHERTOWER; 
+    }
 
-    @Override
-    public int getChanceAttackAgain() { return CHANCE_ATTACK_AGAIN_ROCKETLAUNCHERTOWER; }
+    
+    public int getChanceAttackAgain() { 
+    	return CHANCE_ATTACK_AGAIN_ROCKETLAUNCHERTOWER; 
+    }
 
-    @Override
-    public String toString() { return "Rocket Launcher Tower"; }
+    
+    public String toString() { 
+    	return "Rocket Launcher Tower"; 
+    }
 }

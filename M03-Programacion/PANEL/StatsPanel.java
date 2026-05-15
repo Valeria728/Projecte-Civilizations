@@ -8,10 +8,9 @@ import game.Civilization;
 
 import java.awt.*;
 
-/**
- * Panel de estadísticas de la civilización.
- * Muestra recursos, edificios, tecnología y ejército en tiempo real.
- */
+//Panel de estadísticas de la civilización.
+// Muestra recursos, edificios, tecnología y ejército en tiempo real.
+
 public class StatsPanel extends JPanel {
 
     // Recursos
