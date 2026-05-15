@@ -11,31 +11,57 @@ app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 hbs.registerPartials(path.join(__dirname, 'views/partials'));
 
-// --- REGISTRO DE HELPERS PARA HANDLEBARS ---
+// ─── REGISTRO DE HELPERS PARA HANDLEBARS ──────────────
 
-// 1. Soluciona el error actual (numberFormat)
+// 1. Formateo de números (1.000 en vez de 1000)
 hbs.registerHelper('numberFormat', function(numero) {
     if (typeof numero !== 'number') return numero;
-    return numero.toLocaleString('es-ES'); // Formatea como 1.000 en vez de 1000
+    return numero.toLocaleString('es-ES');
 });
 
-// 2. Helper para los valores por defecto (evita que salga vacío si no hay datos)
+// 2. Valores por defecto
 hbs.registerHelper('default', function(val, def) {
     return (val !== undefined && val !== null) ? val : def;
 });
 
-// 3. Helper para las barras de progreso (el que daba error de corchetes)
+// 3. Barras de progreso
 hbs.registerHelper('progress', function(valor, multiplicador) {
     const total = Math.min((valor || 0) * multiplicador, 100);
-    return total + '%'; // El % se añade aquí para evitar errores en el HBS
+    return total + '%';
 });
 
-// 4. Helper para multiplicar (usado en la descripción de los edificios)
+// 4. Multiplicar
 hbs.registerHelper('multiply', function(a, b) {
     return (a || 0) * b;
 });
+
+// 5. Concatenar textos
+hbs.registerHelper('concat', function() {
+    let out = "";
+    for (let i = 0; i < arguments.length - 1; i++) {
+        out += arguments[i];
+    }
+    return out;
+});
+
+// 6. Comprobar si el ejército está vacío (Soporta múltiples argumentos)
+hbs.registerHelper('isEmptyArmy', function (...args) {
+    const armies = args.slice(0, -1); 
+    return armies.every(army => !army || army.length === 0);
+});
+
+// 7. Comparación de igualdad
 hbs.registerHelper('eq', function(a, b) {
     return a === b;
+});
+
+// 8. Clase CSS para el Log de batalla
+hbs.registerHelper('getLogClass', function(logEntry) {
+    if (!logEntry) return 'log-neutral';
+    const entry = logEntry.toLowerCase();
+    if (entry.includes('victoria') || entry.includes('ganado')) return 'log-success';
+    if (entry.includes('derrota') || entry.includes('perdido')) return 'log-danger';
+    return 'log-neutral';
 });
 
 // Archivos estáticos
@@ -54,7 +80,7 @@ db.connect((err) => {
     else console.log('Conexión a MySQL OK');
 });
 
-// ─── RUTAS (enviará a .hbs) ────────────────────────
+// ─── RUTAS ───────────────────────────────────────
 
 app.get('/', (req, res) => {
     const sqlBatallas = `
@@ -133,9 +159,9 @@ app.get('/civilizacion', (req, res) => {
 
 app.get('/programadores', (req, res) => {
     const programadores = [
-        { nombre: 'Alumno 1', rol: 'Programador Java', tareas: ['Clase Civilization y excepciones', 'Clases de unidades de ataque', 'Interface MilitaryUnit y Variables'] },
-        { nombre: 'Alumno 2', rol: 'Programador Java', tareas: ['Clase Battle', 'Clases de unidades defensivas y especiales', 'Clase Main y TimerTask'] },
-        { nombre: 'Alumno 3', rol: 'Base de datos y Web', tareas: ['Script SQL y DAOs', 'Servidor Node.js y páginas HBS', 'CSS y diseño responsive'] }
+        { nombre: 'Valeria', rol: 'Programador Java', tareas: ['Clase Civilization y excepciones', 'Clases de unidades de ataque', 'Interface MilitaryUnit y Variables'] },
+        { nombre: 'Miguel', rol: 'Programador Java', tareas: ['Clase Battle', 'Clases de unidades defensivas y especiales', 'Clase Main y TimerTask'] },
+        { nombre: 'Diego', rol: 'Base de datos y Web', tareas: ['Script SQL y DAOs', 'Servidor Node.js y páginas HBS', 'CSS y diseño responsive'] }
     ];
     res.render('programadores', { programadores });
 });
