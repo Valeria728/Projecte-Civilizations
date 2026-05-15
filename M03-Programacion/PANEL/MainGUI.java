@@ -21,7 +21,8 @@ import java.util.ArrayList;
  */
 public class MainGUI extends JFrame implements Variables {
 
-    private Civilization civilization;
+    
+	private Civilization civilization;
     private CivilizationDAO civDAO;
     private BattleDAO battleDAO;
     private int civId;

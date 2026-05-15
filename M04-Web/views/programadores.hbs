@@ -1,0 +1,80 @@
+{{> header title='Equipo' page='programadores'}}
+
+<main>
+
+    <h1 class="section-title" style="margin-bottom:0.5rem;">El equipo</h1>
+    <p style="color:var(--text-muted); margin-bottom:3rem;">
+        Desarrolladores del Projecte Civilizations · AMS i AWS · Curs 25-26
+    </p>
+
+    <div class="grid-3">
+    {{#each programadores}}
+    <div class="programmer-card">
+
+        <!-- Avatar dinámico -->
+        <div class="programmer-avatar" style="background:var(--bg-card2); overflow:hidden; display:flex; align-items:center; justify-content:center;">
+            {{#if this.foto}}
+                <img src="/{{this.foto}}" alt="{{this.nombre}}" style="width:100%; height:100%; object-fit:cover;">
+            {{else}}
+                👤
+            {{/if}}
+        </div>
+
+        <div class="programmer-name">{{this.nombre}}</div>
+        <div class="programmer-role">{{this.rol}}</div>
+
+        <ul class="task-list">
+            {{#each this.tareas}}
+            <li>{{this}}</li>
+            {{/each}}
+        </ul>
+
+        </div>
+        {{/each}}
+    </div>
+
+    <!-- ── Módulos del proyecto ── -->
+    <div class="divider divider-graphic">
+        <div class="divider-line"></div>
+        <img src="/img/pergamino.png" alt="pergamino" class="divider-image">
+        <div class="divider-line"></div>
+    </div>
+
+    <h2 class="section-title">Módulos del proyecto</h2>
+
+    <div class="grid-2">
+        <div class="card card-gold">
+            <h3 style="font-family:'Cinzel',serif; color:var(--gold); font-size:0.85rem; letter-spacing:0.08em; margin-bottom:0.75rem;">M01 · Documentación</h3>
+            <p style="font-size:0.9rem; color:var(--text-main);">
+                Manual de usuario, configuración del entorno Java y base de datos Oracle/MySQL.
+            </p>
+        </div>
+        <div class="card card-gold">
+            <h3 style="font-family:'Cinzel',serif; color:var(--gold); font-size:0.85rem; letter-spacing:0.08em; margin-bottom:0.75rem;">M02 · Base de datos</h3>
+            <p style="font-size:0.9rem; color:var(--text-main);">
+                Script SQL con todas las tablas del juego. DAOs en Java para guardar y recuperar el estado.
+            </p>
+        </div>
+        <div class="card card-gold">
+            <h3 style="font-family:'Cinzel',serif; color:var(--gold); font-size:0.85rem; letter-spacing:0.08em; margin-bottom:0.75rem;">M03 · Programación Java</h3>
+            <p style="font-size:0.9rem; color:var(--text-main);">
+                Todas las clases del juego: Civilization, Battle, unidades, interfaz gráfica Swing y TimerTask.
+            </p>
+        </div>
+        <div class="card card-gold">
+            <h3 style="font-family:'Cinzel',serif; color:var(--gold); font-size:0.85rem; letter-spacing:0.08em; margin-bottom:0.75rem;">M04 · Web HBS</h3>
+            <p style="font-size:0.9rem; color:var(--text-main);">
+                Servidor Node.js + Express con plantillas HBS conectadas a la BD. Diseño responsive y animaciones CSS.
+            </p>
+        </div>
+        <div class="card card-gold">
+            <h3 style="font-family:'Cinzel',serif; color:var(--gold); font-size:0.85rem; letter-spacing:0.08em; margin-bottom:0.75rem;">M05 · Entornos de desarrollo</h3>
+            <p style="font-size:0.9rem; color:var(--text-main);">
+                Diagrama de clases UML, control de versiones con GitHub (branches, commits, release).
+            </p>
+        </div>
+    </div>
+
+</main>
+
+{{> footer}}

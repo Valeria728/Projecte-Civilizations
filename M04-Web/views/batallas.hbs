@@ -1,0 +1,62 @@
+{{> header title='Batallas' page='batallas'}}
+
+<main>
+
+    <h1 class="section-title" style="margin-bottom:0.5rem;">Historial de batallas</h1>
+    <p style="color:var(--text-muted); margin-bottom:2.5rem;">
+        Registro completo de todos los enfrentamientos contra el ejército enemigo.
+    </p>
+
+    <!-- ── TOTAL DESTACADO ── -->
+    <div class="total-highlight">
+        <div class="number">{{total}}</div>
+        <div class="label">Batallas jugadas en total</div>
+    </div>
+
+    <!-- ── TABLA DE BATALLAS ── -->
+    {{#if batallas.length}}
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Unidades civ. iniciales</th>
+                        <th>Unidades enemigas iniciales</th>
+                        <th>Madera obtenida</th>
+                        <th>Hierro obtenido</th>
+                        <th>Informe</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each batallas}}
+                    <tr>
+                        <td>
+                            <span class="badge badge-gold">#{{this.num_battle}}</span>
+                        </td>
+                        <td>{{#if this.civUnidades}}{{this.civUnidades}}{{else}}—{{/if}}</td>
+                        <td>{{#if this.enemUnidades}}{{this.enemUnidades}}{{else}}—{{/if}}</td>
+                        <td>🪵 {{#if this.wood_acquired}}{{this.wood_acquired}}{{else}}0{{/if}}</td>
+                        <td>⚙ {{#if this.iron_acquired}}{{this.iron_acquired}}{{else}}0{{/if}}</td>
+                        <td>
+                            <a href="/informe?id={{this.num_battle}}" class="btn">
+                                Ver informe
+                            </a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    {{else}}
+        <div class="card" style="text-align:center; padding:3rem; color:var(--text-muted);">
+            <div style="font-size:3rem; margin-bottom:1rem;">⚔</div>
+            <p>Todavía no hay batallas registradas.</p>
+            <p style="font-size:0.9rem; margin-top:0.5rem;">
+                Los ejércitos enemigos atacan cada 3 minutos. ¡Prepara tus defensas!
+            </p>
+        </div>
+    {{/if}}
+
+</main>
+
+{{> footer}}
