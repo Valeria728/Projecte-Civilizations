@@ -136,6 +136,21 @@ main {
     padding: 5rem 2rem 4rem;
     position: relative;
     overflow: hidden;
+    position: relative;
+    padding: 100px 20px;
+    text-align: center;
+    color: white; 
+    
+    /* La magia */
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                url('/img/fondo.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efecto de movimiento */
+    
+    border-radius: 15px;
+    margin: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
 }
 
 .hero::before {
@@ -609,6 +624,19 @@ header::after {
 
 @keyframes loadBar {
     to { width: 100%; }
+}
+/* Botón de música */
+#music-toggle {
+    background: #b8860b; /* Un color oro viejo */
+    color: #000;
+    font-weight: bold;
+    border: 2px solid #ffd700;
+    transition: all 0.3s ease;
+}
+
+#music-toggle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #ffd700;
 }
 
 /* ── FOOTER ─────────────────────────────────────────────────── */
