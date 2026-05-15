@@ -1,6 +1,5 @@
 package interfaces;
 
-
 public interface Variables {
 
     // Resources to create the first enemy army

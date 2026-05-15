@@ -2,7 +2,7 @@ package units;
 
 import interfaces.*;
 
-public abstract class AttackUnit implements MilitaryUnit, Variables {
+public abstract class DefenseUnit implements MilitaryUnit, Variables {
 
     protected int armor;
     protected int initialArmor;
@@ -10,8 +10,7 @@ public abstract class AttackUnit implements MilitaryUnit, Variables {
     protected int experience;
     protected boolean sanctified;
 
-    // Constructor with technology parameters
-    public AttackUnit(int armor, int baseDamage) {
+    public DefenseUnit(int armor, int baseDamage) {
         this.armor = armor;
         this.initialArmor = armor;
         this.baseDamage = baseDamage;
@@ -22,9 +21,7 @@ public abstract class AttackUnit implements MilitaryUnit, Variables {
     
     public int attack() {
         int damage = baseDamage;
-        // experience bonus
         damage = damage + (experience * PLUS_ATTACK_UNIT_PER_EXPERIENCE_POINT * baseDamage / 100);
-        // sanctify bonus
         if (sanctified) {
             damage = damage + (PLUS_ATTACK_UNIT_SANCTIFIED * baseDamage / 100);
         }

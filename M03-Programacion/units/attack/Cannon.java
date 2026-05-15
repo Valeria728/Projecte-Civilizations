@@ -15,25 +15,39 @@ public class Cannon extends AttackUnit {
         super(ARMOR_CANNON, BASE_DAMAGE_CANNON);
     }
 
-    @Override
-    public int getFoodCost() { return FOOD_COST_CANNON; }
+    
+    public int getFoodCost() { 
+    	return FOOD_COST_CANNON; 
+    }
 
-    @Override
-    public int getWoodCost() { return WOOD_COST_CANNON; }
+    
+    public int getWoodCost() { 
+    	return WOOD_COST_CANNON; 
+    }
 
-    @Override
-    public int getIronCost() { return IRON_COST_CANNON; }
+    
+    public int getIronCost() { 
+    	return IRON_COST_CANNON; 
+    }
 
-    @Override
-    public int getManaCost() { return MANA_COST_CANNON; }
+    
+    public int getManaCost() { 
+    	return MANA_COST_CANNON;
+    }
 
-    @Override
-    public int getChanceGeneratingWaste() { return CHANCE_GENERATNG_WASTE_CANNON; }
+    
+    public int getChanceGeneratingWaste() { 
+    	return CHANCE_GENERATNG_WASTE_CANNON; 
+    }
 
-    @Override
-    public int getChanceAttackAgain() { return CHANCE_ATTACK_AGAIN_CANNON; }
+    
+    public int getChanceAttackAgain() { 
+    	return CHANCE_ATTACK_AGAIN_CANNON; 
+    }
 
-    @Override
-    public String toString() { return "Cannon"; }
+    
+    public String toString() { 
+    	return "Cannon"; 
+    }
 }
 
