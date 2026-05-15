@@ -1,1 +1,6 @@
-
+Despues de varios intentos fracasados en las compilaciones, en averiguar como se realizaba la conexion 
+con la base de datos, como conseguir hacer una interface grafica en swing, mencionar que se nos explico fuera de tiempo el javaFX
+que fue interesante y vista la explicacion más facil o menos complicada de realizar hubiera sido una 
+realización menos estresante, pero ya teniamos la swing realizada y no lo vimos viable volver a retocar
+el programa, nos funcionaba y no queriamos volver a empezar  con el esfuerzo que nos costo realizar lo.
+se visualiza la interface grafica y se comprueba la conexion con Base de datos en local, todo okey.
