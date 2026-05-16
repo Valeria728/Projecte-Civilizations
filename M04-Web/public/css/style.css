@@ -534,6 +534,26 @@ tbody td {
 }
 
 .task-list li:last-child { border-bottom: none; }
+/* ── DIVISOR GRÁFICO ─────────────────────────────────────────── */
+.divider.divider-graphic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem; /* Espacio entre la línea y la imagen */
+    margin: 3.5rem 0; /* Espaciado superior e inferior */
+}
+
+.divider-line {
+    flex-grow: 1;
+    height: 2px;
+    background-color: var(--gold-faded); /* El color dorado difuminado que ya usas */
+}
+
+.divider-image {
+    width: 32px; /* Ajusta el tamaño según lo necesites (32-48px suele ir bien) */
+    height: auto; /* Mantiene la proporción */
+    filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.5)); /* Opcional: añade sombra para que resalte más */
+}
 
 /* ── TOTAL DESTACADO ─────────────────────────────────────────── */
 .total-highlight {

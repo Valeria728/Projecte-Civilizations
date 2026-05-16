@@ -65,7 +65,7 @@ hbs.registerHelper('getLogClass', function(logEntry) {
 });
 
 // Archivos estáticos
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../public')));
 
 // ─── CONEXIÓN A LA BASE DE DATOS ───────────────────────────────────────────
 const db = mysql.createConnection({
