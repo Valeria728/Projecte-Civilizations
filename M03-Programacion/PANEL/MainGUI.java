@@ -45,29 +45,30 @@ public class MainGUI extends JFrame implements Variables {
     // Ejército enemigo actual
     private ArrayList<MilitaryUnit> enemyArmy;
 
-    public MainGUI() {
+    public MainGUI() { // Constructor principal, inicializa la civilización y los DAOs
         civDAO  = new CivilizationDAO();
         battleDAO = new BattleDAO();
         civId   = civDAO.getFirstCivilizationId();
 
         // Cargar civilización desde BD o crear nueva
-        if (civId != -1) {
+        if (civId != -1) { // Si hay una civilización guardada, la cargamos
             civilization = civDAO.loadCivilization(civId);
         }
-        if (civilization == null) {
+        if (civilization == null) { // Si no hay civilización guardada, creamos una nueva
             civilization = new Civilization();
             civId = 1;
         }
 
-        initUI();
-        startTimers();
+        initUI(); // Configura la interfaz gráfica
+        startTimers(); /* Inicia los temporizadores para generación de 
+                          recursos y creación de enemigos.*/
     }
-
-    private void initUI() {
+    // -------------------------------------------------------
+    private void initUI() { // Configura la interfaz gráfica, colores, fuentes, paneles, etc.
         setTitle("Civilizations - Projecte AMS i AWS curs 25-26");
         setSize(1000, 700);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Cerrar la aplicación al cerrar la ventana
+        setLocationRelativeTo(null); // Centrar la ventana en la pantalla
 
         // --- PALETA DE COLORES ---
         Color fondoMuyOscuro = new Color(15, 15, 25);
@@ -75,7 +76,7 @@ public class MainGUI extends JFrame implements Variables {
         Color dorado         = new Color(255, 215, 0);
         Color verdeEstado    = new Color(150, 255, 150);
 
-        getContentPane().setBackground(fondoMuyOscuro);
+        getContentPane().setBackground(fondoMuyOscuro); // Fondo general de la ventana
 
         // Panel principal con margen
         JPanel mainPanel = new JPanel(new BorderLayout(10, 10));
@@ -95,7 +96,7 @@ public class MainGUI extends JFrame implements Variables {
         tabbedPane.setForeground(Color.WHITE);
         tabbedPane.setFont(new Font("SansSerif", Font.BOLD, 14));
         
-        // Quitar el borde feo por defecto si el LookAndFeel lo permite
+        // Quitar el borde por defecto si el LookAndFeel lo permite
         tabbedPane.setFocusable(false);
 
         statsPanel     = new StatsPanel(civilization);
@@ -104,7 +105,7 @@ public class MainGUI extends JFrame implements Variables {
         techPanel      = new TechPanel(civilization, this);
         battlePanel    = new BattlePanel(battleDAO, civId);
 
-        // Añadir pestañas con iconos (puedes mantener tus emojis)
+        // Añadir pestañas con iconos
         tabbedPane.addTab("📊 Stats",      statsPanel);
         tabbedPane.addTab("⚔ Ejército",   armyPanel);
         tabbedPane.addTab("🏗 Edificios",  buildingsPanel);
@@ -113,7 +114,7 @@ public class MainGUI extends JFrame implements Variables {
 
         mainPanel.add(tabbedPane, BorderLayout.CENTER);
 
-        // Barra de estado inferior más elegante
+        // Barra de estado inferior
         statusLabel = new JLabel("  Sistema listo. Esperando órdenes...");
         statusLabel.setFont(new Font("Monospaced", Font.PLAIN, 13));
         statusLabel.setForeground(verdeEstado);
@@ -145,24 +146,27 @@ public class MainGUI extends JFrame implements Variables {
             }
         };
 
-        gameTimer.schedule(resourceTask, 60000, 60000);
-        gameTimer.schedule(battleTask, 180000, 180000);
+        gameTimer.schedule(resourceTask, 60000, 60000); // primera ejecución a los 60s, luego cada 60s
+        gameTimer.schedule(battleTask, 180000, 180000); // primera ejecución a los 180s, luego cada 180s
     }
 
-    private void generateResources() {
+    private void generateResources() { // Genera recursos para la civilización 
+        // Calcula la cantidad de recursos generados en función de las mejoras y edificios
         int foodGen = CIVILIZATION_FOOD_GENERATED + civilization.getFarm() * CIVILIZATION_FOOD_GENERATED_PER_FARM;
         int woodGen = CIVILIZATION_WOOD_GENERATED + civilization.getCarpentry() * CIVILIZATION_WOOD_GENERATED_PER_CARPENTRY;
         int ironGen = CIVILIZATION_IRON_GENERATED + civilization.getSmithy() * CIVILIZATION_IRON_GENERATED_PER_SMITHY;
         int manaGen = civilization.getMagicTower() * CIVILIZATION_MANA_GENERATED_PER_MAGIC_TOWER;
-
-        civilization.setFood(civilization.getFood() + foodGen);
+        // Actualiza los recursos de la civilización
+        civilization.setFood(civilization.getFood() + foodGen); // suma los recursos generados a los actuales
         civilization.setWood(civilization.getWood() + woodGen);
         civilization.setIron(civilization.getIron() + ironGen);
-        civilization.setMana(civilization.getMana() + manaGen);
+        civilization.setMana(civilization.getMana() + manaGen); /* el maná solo se genera con la Torre Mágica, 
+                                                                   no tiene generación base.*/
 
         // Guardar en BD y actualizar UI desde hilo Swing
         civDAO.saveCivilization(civilization, civId);
-
+        /* Actualizar la interfaz gráfica en el hilo de 
+           Swing para evitar problemas de concurrencia*/
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 refreshAllPanels();
@@ -170,10 +174,10 @@ public class MainGUI extends JFrame implements Variables {
             }
         });
     }
-
+    // Crea un ejército enemigo basado en el número de batallas y muestra una ventana de amenaza.
     private void createEnemyAndBattle() {
         enemyArmy = createEnemyArmy();
-
+        // Mostrar ventana de amenaza 
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 // Mostrar ventana de amenaza
@@ -181,58 +185,62 @@ public class MainGUI extends JFrame implements Variables {
             }
         });
     }
-
+    /* Genera un ejército enemigo aleatorio basado en 
+       los recursos disponibles, que augmentan con el número de batallas ganadas.*/
     private ArrayList<MilitaryUnit> createEnemyArmy() {
         ArrayList<MilitaryUnit> army = new ArrayList<MilitaryUnit>();
         int battles = civilization.getBattles();
-        int increase = (int) Math.pow(1 + ENEMY_FLEET_INCREASE / 100.0, battles);
-
-        int ironAvailable  = IRON_BASE_ENEMY_ARMY  * increase;
+        int increase = (int) Math.pow(1 + ENEMY_FLEET_INCREASE / 100.0, battles); // Aumenta recursos disponibles con cada batalla ganada.
+        // Recursos disponibles para el ejército enemigo, aumentan con el número de batallas ganadas.
+        int ironAvailable  = IRON_BASE_ENEMY_ARMY  * increase; 
         int woodAvailable  = WOOD_BASE_ENEMY_ARMY  * increase;
         int foodAvailable  = FOOD_BASE_ENEMY_ARMY  * increase;
-
+        /* El ejército enemigo se genera aleatoriamente pero siempre intentando usar los recursos 
+        disponibles de la manera más eficiente posible,*/
         int minFood = FOOD_COST_SWORDSMAN;
         int minWood = WOOD_COST_SWORDSMAN;
         int minIron = IRON_COST_SWORDSMAN;
-
+        /* Mientras haya recursos suficientes para crear al menos un Swordsman, 
+        seguimos generando unidades.*/
         while (foodAvailable >= minFood && woodAvailable >= minWood && ironAvailable >= minIron) {
-            int rand = (int)(Math.random() * 100);
+            int rand = (int)(Math.random() * 100); // Número aleatorio entre 0 y 99 para decidir el tipo de unidad a generar.
             MilitaryUnit unit = null;
 
-            if (rand < 35) {
+            if (rand < 35) { // 35% de probabilidad de generar un Swordsman
                 if (foodAvailable >= FOOD_COST_SWORDSMAN && woodAvailable >= WOOD_COST_SWORDSMAN && ironAvailable >= IRON_COST_SWORDSMAN) {
                     unit = new Swordsman();
                     foodAvailable -= FOOD_COST_SWORDSMAN;
                     woodAvailable -= WOOD_COST_SWORDSMAN;
                     ironAvailable -= IRON_COST_SWORDSMAN;
                 }
-            } else if (rand < 60) {
+            } else if (rand < 60) { // 25% de probabilidad de generar un Spearman
                 if (foodAvailable >= FOOD_COST_SPEARMAN && woodAvailable >= WOOD_COST_SPEARMAN && ironAvailable >= IRON_COST_SPEARMAN) {
                     unit = new Spearman();
                     foodAvailable -= FOOD_COST_SPEARMAN;
                     woodAvailable -= WOOD_COST_SPEARMAN;
                     ironAvailable -= IRON_COST_SPEARMAN;
                 }
-            } else if (rand < 80) {
+            } else if (rand < 80) { // 20% de probabilidad de generar un Crossbow
                 if (woodAvailable >= WOOD_COST_CROSSBOW && ironAvailable >= IRON_COST_CROSSBOW) {
                     unit = new Crossbow();
                     woodAvailable -= WOOD_COST_CROSSBOW;
                     ironAvailable -= IRON_COST_CROSSBOW;
                 }
-            } else {
+            } else { // 20% de probabilidad de generar un Cannon
                 if (woodAvailable >= WOOD_COST_CANNON && ironAvailable >= IRON_COST_CANNON) {
                     unit = new Cannon();
                     woodAvailable -= WOOD_COST_CANNON;
                     ironAvailable -= IRON_COST_CANNON;
                 }
             }
-
-            if (unit != null) {
+            /* Si no se pudo generar la unidad aleatoria 
+               por falta de recursos, intentamos generar un Swordsman como fallback,*/
+            if (unit != null) {  
                 army.add(unit);
             } else {
                 // No podemos crear la unidad aleatoria, intentamos swordsman
                 if (foodAvailable >= FOOD_COST_SWORDSMAN && woodAvailable >= WOOD_COST_SWORDSMAN && ironAvailable >= IRON_COST_SWORDSMAN) {
-                    army.add(new Swordsman());
+                    army.add(new Swordsman()); // si no se pudo generar la unidad aleatoria
                     foodAvailable -= FOOD_COST_SWORDSMAN;
                     woodAvailable -= WOOD_COST_SWORDSMAN;
                     ironAvailable -= IRON_COST_SWORDSMAN;
@@ -243,27 +251,30 @@ public class MainGUI extends JFrame implements Variables {
         }
         return army;
     }
-
+    /* Muestra un diálogo de amenaza con el resumen del ejército enemigo y 
+       opción para iniciar la batalla.*/
     private void showThreatDialog() {
         StringBuilder sb = new StringBuilder("¡NUEVO EJÉRCITO ENEMIGO EN CAMINO!\n\n");
-        int sw = 0, sp = 0, cb = 0, ca = 0;
+        int sw = 0, sp = 0, cb = 0, ca = 0; // Contadores para cada tipo de unidad enemiga
         for (int i = 0; i < enemyArmy.size(); i++) {
             MilitaryUnit u = enemyArmy.get(i);
             if (u instanceof Swordsman)  sw++;
             else if (u instanceof Spearman) sp++;
             else if (u instanceof Crossbow) cb++;
             else if (u instanceof Cannon)   ca++;
-        }
-        sb.append("Swordsman:  ").append(sw).append("\n");
+        } /* Contamos cuántas unidades de cada tipo hay en el ejército enemigo 
+             para mostrar un resumen claro al jugador.*/
+        sb.append("Swordsman:  ").append(sw).append("\n");  
         sb.append("Spearman:   ").append(sp).append("\n");
         sb.append("Crossbow:   ").append(cb).append("\n");
         sb.append("Cannon:     ").append(ca).append("\n\n");
         sb.append("Total unidades: ").append(enemyArmy.size()).append("\n\n");
         sb.append("¿Preparado para la batalla?");
-
+        // Personalizar el JOptionPane (Título y colores) 
         int option = JOptionPane.showConfirmDialog(this, sb.toString(),
-                "⚠ AMENAZA ENTRANTE", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
-
+                " AMENAZA ENTRANTE", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        /* Si el jugador elige "Sí", iniciamos la batalla inmediatamente. Si elige "No", 
+           simplemente cerramos el diálogo y esperamos a la siguiente generación de ejército enemigo.*/
         if (option == JOptionPane.YES_OPTION) {
             startBattle();
         }
@@ -321,18 +332,18 @@ public class MainGUI extends JFrame implements Variables {
         ta.setForeground(new Color(50, 255, 50)); 
         
         JScrollPane sp = new JScrollPane(ta);
-        sp.setPreferredSize(new Dimension(700, 450));
+        sp.setPreferredSize(new Dimension(700, 450)); // Tamaño del área de texto
         sp.setBorder(BorderFactory.createLineBorder(new Color(0, 100, 0)));
 
         // Personalizar el JOptionPane (Título y colores)
         UIManager.put("OptionPane.background", new Color(30, 30, 40));
         UIManager.put("Panel.background", new Color(30, 30, 40));
         UIManager.put("OptionPane.messageForeground", Color.WHITE);
-
+        // Mostrar el diálogo con el reporte de la batalla y opción para ver el desarrollo detallado.
         int opt = JOptionPane.showConfirmDialog(this, sp,
-                "📊 INFORME DE INTELIGENCIA MILITAR", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE);
+                " INFORME DE INTELIGENCIA MILITAR", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE);
 
-        if (opt == JOptionPane.YES_OPTION) {
+        if (opt == JOptionPane.YES_OPTION) { // Si el jugador elige "Sí", mostramos el desarrollo detallado de la batalla.
             // Texto de desarrollo (Consola Ámbar)
             JTextArea dev = new JTextArea(development);
             dev.setFont(new Font("Monospaced", Font.PLAIN, 12));
@@ -340,32 +351,34 @@ public class MainGUI extends JFrame implements Variables {
             dev.setBackground(new Color(20, 15, 5)); 
             dev.setForeground(new Color(255, 180, 50));
             
-            JScrollPane spDev = new JScrollPane(dev);
+            JScrollPane spDev = new JScrollPane(dev); // Barra de desplazamiento para el desarrollo detallado
             spDev.setPreferredSize(new Dimension(750, 500));
             spDev.setBorder(BorderFactory.createLineBorder(new Color(150, 100, 0)));
             
-            JOptionPane.showMessageDialog(this, spDev, "📜 LOG DETALLADO DE COMBATE", JOptionPane.PLAIN_MESSAGE);
+            JOptionPane.showMessageDialog(this, spDev, " LOG DETALLADO DE COMBATE", JOptionPane.PLAIN_MESSAGE);
         }
     }
 
     // -------------------------------------------------------
     // Métodos de utilidad para los paneles
     // -------------------------------------------------------
-    public void refreshAllPanels() {
+    public void refreshAllPanels() { /* Refresca todos los paneles para mostrar la información actualizada de 
+                                        la civilización después de cambios como generación de 
+                                        recursos o resultados de batallas.*/
         statsPanel.refresh(civilization);
         armyPanel.refresh(civilization);
         buildingsPanel.refresh(civilization);
         techPanel.refresh(civilization);
     }
-
+    // Muestra mensajes de estado en la barra inferior.
     public void setStatus(String msg) {
         statusLabel.setText("  " + msg);
     }
-
-    public Civilization getCivilization() {
+    
+    public Civilization getCivilization() { 
         return civilization;
     }
-
+    // Guarda la civilización actual en la base de datos, se llama al cerrar la aplicación.
     public void saveToDB() {
         civDAO.saveCivilization(civilization, civId);
     }
@@ -373,26 +386,31 @@ public class MainGUI extends JFrame implements Variables {
     // -------------------------------------------------------
     // MAIN: punto de entrada gráfico
     // -------------------------------------------------------
-    public static void main(String[] args) {
+    public static void main(String[] args) { 
         // Aspecto oscuro del sistema operativo si está disponible
         try {
             UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
         } catch (Exception e) {
             // Ignorar, se usa el look por defecto
         }
-
-        SwingUtilities.invokeLater(new Runnable() {
+        // Inicia la interfaz gráfica en el hilo de Swing para evitar problemas de concurrencia.
+        SwingUtilities.invokeLater(new Runnable() { 
             public void run() {
                 new MainGUI().setVisible(true);
             }
         });
     }
+    /* Convierte la lista simple de unidades enemigas en 
+       grupos por tipo para facilitar el manejo en la batalla.*/
     private ArrayList<MilitaryUnit>[] createEnemyArmyGroups(ArrayList<MilitaryUnit> simpleList) {
         ArrayList<MilitaryUnit>[] groups = new ArrayList[4];
-        for (int i = 0; i < 4; i++) {
-            groups[i] = new ArrayList<MilitaryUnit>();
+        for (int i = 0; i < 4; i++) { // Inicializamos cada grupo como una lista vacía
+            groups[i] = new ArrayList<MilitaryUnit>(); /* grupo 0 = Swordsman, grupo 1 = Spearman, 
+                                                          grupo 2 = Crossbow, grupo 3 = Cannon.*/
         }
-        for (MilitaryUnit u : simpleList) {
+        for (MilitaryUnit u : simpleList) { /* Clasificamos cada unidad enemiga en su grupo correspondiente según su tipo.
+            operador que permite verificar si un objeto es una instancia de una clase específica, 
+            lo que es útil para organizar las unidades enemigas en grupos según su tipo.*/     
             if (u instanceof Swordsman) groups[0].add(u);
             else if (u instanceof Spearman) groups[1].add(u);
             else if (u instanceof Crossbow) groups[2].add(u);
