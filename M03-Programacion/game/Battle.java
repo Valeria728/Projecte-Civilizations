@@ -321,7 +321,7 @@ public class Battle implements Variables {
     //REALIZAR UN ATAQUE
     // -------------------------
 
-    /
+    
     /* attackerIsCivilization: verdadero = la civilización ataca al enemigo, 
     falso = el enemigo ataca a la civilización.*/
     private void performAttack(boolean attackerIsCivilization) {
