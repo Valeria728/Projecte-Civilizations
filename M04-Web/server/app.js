@@ -71,7 +71,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',         
-    password: 'civilizacion.',     
+    password: '1234.',     
     database: 'civilizations_db'
 });
 
@@ -104,8 +104,8 @@ app.get('/batallas', (req, res) => {
     const sqlTotal = `SELECT COUNT(*) AS total FROM battle_stats WHERE civilization_id = 1`;
     const sqlBatallas = `
         SELECT bs.num_battle, bs.wood_acquired, bs.iron_acquired,
-               (SELECT SUM(cas2.initial) FROM civilization_attack_stats cas2 WHERE cas2.num_battle = bs.num_battle AND cas2.civilization_id = bs.civilization_id) AS civUnidades,
-               (SELECT SUM(eas2.initial) FROM enemy_attack_stats eas2 WHERE eas2.num_battle = bs.num_battle AND eas2.civilization_id = bs.civilization_id) AS enemUnidades
+               (SELECT SUM(cas2.initial_count) FROM civilization_attack_stats cas2 WHERE cas2.num_battle = bs.num_battle AND cas2.civilization_id = bs.civilization_id) AS civUnidades,
+               (SELECT SUM(eas2.initial_count) FROM enemy_attack_stats eas2 WHERE eas2.num_battle = bs.num_battle AND eas2.civilization_id = bs.civilization_id) AS enemUnidades
         FROM battle_stats bs
         WHERE bs.civilization_id = 1
         ORDER BY bs.num_battle DESC
@@ -121,10 +121,10 @@ app.get('/batallas', (req, res) => {
 app.get('/informe', (req, res) => {
     const id = parseInt(req.query.id) || 1;
     const sqlBatalla = `SELECT * FROM battle_stats WHERE num_battle = ? AND civilization_id = 1`;
-    const sqlCivAtaque = `SELECT type, initial, drops FROM civilization_attack_stats WHERE num_battle = ? AND civilization_id = 1`;
-    const sqlCivDefensa = `SELECT type, initial, drops FROM civilization_defense_stats WHERE num_battle = ? AND civilization_id = 1`;
-    const sqlCivEspecial = `SELECT type, initial, drops FROM civilization_special_stats WHERE num_battle = ? AND civilization_id = 1`;
-    const sqlEnemy = `SELECT type, initial, drops FROM enemy_attack_stats WHERE num_battle = ? AND civilization_id = 1`;
+    const sqlCivAtaque = `SELECT type, initial_count, drops FROM civilization_attack_stats WHERE num_battle = ? AND civilization_id = 1`;
+    const sqlCivDefensa = `SELECT type, initial_count, drops FROM civilization_defense_stats WHERE num_battle = ? AND civilization_id = 1`;
+    const sqlCivEspecial = `SELECT type, initial_count, drops FROM civilization_special_stats WHERE num_battle = ? AND civilization_id = 1`;
+    const sqlEnemy = `SELECT type, initial_count, drops FROM enemy_attack_stats WHERE num_battle = ? AND civilization_id = 1`;
     const sqlLog = `SELECT log_entry FROM battle_log WHERE num_battle = ? AND civilization_id = 1 ORDER BY num_line ASC`;
 
     db.query(sqlBatalla, [id], (err, batallaResult) => {
