@@ -1,11 +1,3 @@
 Hoy he iniciado a generar la base de datos co nun script que contiene 
 Battle, palyer army y player stats, se han hecho ls inserts de los datos proporcionados en 
 pdf del projecto.
-
-------------------------------------------------------------------------------------------
-## Diseño de la Base de Datos
-Aquí puedes ver el diagrama entidad-relación del proyecto:
-
-![Diagrama de la base de datos](./Diagrama_Base_De_Dades.png)
-
-*Puedes encontrar el archivo editable de MySQL Workbench en [Base_de_dades_Diagrama_Visual.mwb](./Base_de_dades_Diagrama_Visual.mwb)*
