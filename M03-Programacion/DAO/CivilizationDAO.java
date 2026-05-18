@@ -209,12 +209,21 @@ public class CivilizationDAO {
     // Devuelve el ID de la primera civilización guardada (para simplificar)
     public int getFirstCivilizationId() {
         int id = -1;
+        
+        // 1. Validamos que la conexión no sea nula antes de usarla
+        if (this.con == null) {
+            System.err.println("🚨 Error: 'this.con' es null. No se puede conectar a la base de datos.");
+            return id; // Retorna -1 y evita que el programa se cierre bruscamente
+        }
+
         try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("SELECT civilization_id FROM civilization_stats LIMIT 1");
+            
             if (rs.next()) {
                 id = rs.getInt("civilization_id");
             }
+            
             rs.close();
             st.close();
         } catch (SQLException e) {
