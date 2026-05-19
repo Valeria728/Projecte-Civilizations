@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Civilizations - {{title}}</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header>
+    <div class="header-inner">
+        <!-- Logo -->
+        <a href="/" class="logo">
+            <div class="logo-icon">⚔️</div>
+            <span class="logo-text">CIVILIZATIONS</span>
+        </a>
+
+        <!-- Menú de navegación -->
+        <nav>
+            <a href="/" class="{{#if (eq page 'inicio')}}active{{/if}}">Inicio</a>
+            <a href="/batallas" class="{{#if (eq page 'batallas')}}active{{/if}}">Batallas</a>
+            <a href="/civilizacion" class="{{#if (eq page 'civilizacion')}}active{{/if}}">Civilización</a>
+            <a href="/programadores" class="{{#if (eq page 'programadores')}}active{{/if}}">Equipo</a>
+        </nav>
+    </div>
+</header>

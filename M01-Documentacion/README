@@ -1,1 +1,191 @@
+REGISTRO DE ACTIVIDADES -- INICIO DEL PROYECTO
+===============================================
+
+Lunes, 4 de mayo
+Durante esta jornada se realizó la presentación oficial del proyecto por parte del equipo docente. 
+El objetivo principal del día fue comprender el alcance general del sistema a desarrollar, 
+así como identificar los principales requisitos y funcionalidades planteadas en el enunciado.
+
+Se llevó a cabo una primera lectura exploratoria del proyecto con el fin de familiarizarnos con la estructura, 
+los conceptos clave y las tecnologías implicadas. Esta toma de contacto inicial permitió establecer una base común 
+de entendimiento entre los integrantes del equipo.
+
+------------------------------------------------------------------------------------------------------------------------
+
+Martes, 5 de mayo
+
+En este día se inició el trabajo práctico del proyecto. Las principales actividades realizadas fueron:
+
+· Creación y organización inicial de la estructura de carpetas en el repositorio de GitHub, 
+  siguiendo una lógica modular para facilitar el desarrollo.
+· Intento de integración del entorno de desarrollo Eclipse IDE con el repositorio en GitHub
+
+Durante este proceso surgieron diversas dificultades técnicas, especialmente relacionadas con:
+
+·  La conexión entre el IDE y el repositorio remoto.
+·  La sincronización de cambios (push/pull).
+·  La visualización de actualizaciones tanto en local como en la nube.
+
+Estas incidencias requirieron una inversión considerable de tiempo durante la jornada, afectando parcialmente al ritmo de avance 
+previsto.
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+Miércoles, 6 de mayo
+
+El trabajo continuó fuera del horario de clases, centrado principalmente en la comprensión profunda del enunciado del proyecto. 
+Las actividades realizadas fueron:
+
+·  Lectura detallada y análisis del ejercicio para identificar requisitos funcionales y técnicos.
+·  Definición de una estructura de trabajo basada en fases (planificación, desarrollo, pruebas, etc.).
+·  División del proyecto en diferentes módulos o secciones.
+·  Asignación de responsabilidades entre los tres integrantes del equipo, con el objetivo de optimizar la organización y el progreso del 
+desarrollo.
+
+Este día fue clave para establecer una base organizativa sólida, permitiendo transformar un problema complejo en tareas más manejables y 
+bien distribuidas.
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+Jueves, 8 de mayo
+
+Durante esta jornada se trabajó tanto en clase como fuera del horario lectivo en el desarrollo conceptual y técnico del proyecto. 
+El enfoque principal estuvo centrado en la dinámica general del juego y en la planificación de la interfaz gráfica.
+
+Las actividades realizadas incluyeron:
+
+·  Análisis de la lógica y funcionamiento interno del juego.
+·  Definición de las mecánicas principales y de la interacción entre los distintos componentes del sistema.
+·  Avance en el diseño inicial de la interfaz gráfica, evaluando cómo representar visualmente las funcionalidades del proyecto.
+·  Organización de ideas relacionadas con ventanas, menús y distribución de elementos visuales.
+
+El objetivo principal de esta fase era lograr que la estructura funcional del proyecto estuviera correctamente definida y operativa antes de
+profundizar en el desarrollo detallado de las interfaces gráficas y los aspectos visuales de la aplicación.
+
+Además, se continuó reforzando la coordinación entre los tres integrantes del equipo para mantener una distribución equilibrada de tareas y un 
+desarrollo más eficiente del proyecto.
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+Viernes, 9 de mayo
+
+Durante esta jornada se continuó avanzando en distintos apartados fundamentales del proyecto, tanto a nivel lógico como estructural.
+
+Las principales tareas realizadas fueron:
+
+·  Desarrollo y mejora de la dinámica interna del juego, trabajando en la lógica de funcionamiento y en la interacción entre las diferentes partes del sistema.
+·  Inicio de la creación y organización de la base de datos, definiendo las tablas necesarias y la estructura general para el almacenamiento de información.
+·  Continuación del proceso de análisis y comprensión del proyecto, debido a la complejidad y amplitud de los requisitos planteados en el enunciado.
+·  Revisión de posibles soluciones técnicas y organización de ideas para facilitar el desarrollo futuro.
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+Sabado, 10 de mayo y Domingo, 11 de mayo 
+
+Durante el fin de semana el equipo continuó trabajando de forma autónoma en distintos aspectos del proyecto, dedicando varias horas al 
+desarrollo y comprensión técnica de la aplicación.
+
+Las actividades principales realizadas fueron:
+
+·  Continuación del desarrollo de la lógica del juego y de la estructura general del sistema.
+·  Avance en el diseño y organización de las interfaces gráficas, buscando una mejor integración entre la parte visual y la funcionalidad del proyecto.
+·  Trabajo en la conexión entre los distintos componentes del sistema, especialmente entre la lógica, las interfaces y la base de datos.
+·  Investigación y búsqueda de información adicional sobre el funcionamiento de Eclipse IDE, así como sobre herramientas y configuraciones necesarias para 
+   conectar correctamente la aplicación con la base de datos.
+·  Revisión de documentación, tutoriales y ejemplos prácticos relacionados con conexión JDBC, gestión de repositorios y estructura de proyectos en Java.
+
+Estas jornadas permitieron reforzar conocimientos técnicos importantes y solucionar varias dudas que habían surgido durante los primeros días de desarrollo 
+del proyecto.
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+Lunes, 12 de mayo 
+
+Durante esta jornada el equipo comenzó a consolidar gran parte del trabajo técnico realizado en los días anteriores, enfocándose en integrar los distintos 
+componentes del proyecto.
+
+Las actividades principales desarrolladas fueron:
+
+·  Avance significativo en la conexión con la base de datos, dejando prácticamente configurada la comunicación entre la aplicación y el sistema 
+   de almacenamiento de información.
+·  Continuación del desarrollo del código principal del proyecto, mejorando la estructura y comprensión de la lógica general del sistema.
+·  Inicio del desarrollo de la página web asociada al proyecto, siguiendo los requisitos establecidos en el enunciado.
+·  Organización de la información del juego para ser representada correctamente en la interfaz web.
+·  Trabajo en la lógica necesaria para mostrar, gestionar y conectar los datos del juego dentro de la página web.
+
+El objetivo principal de esta fase era comenzar a unificar la parte de backend, la base de datos y la interfaz web, con el fin de construir una aplicación 
+más completa y funcional acorde a los requisitos del proyecto.
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Martes, 13 de mayo 
+
+Durante esta jornada se continuó avanzando intensamente en el desarrollo de la página web y en la integración general del proyecto. 
+Gran parte del trabajo estuvo centrado en acercarse a una versión funcional casi completa del juego, aunque todavía quedaban varios apartados 
+pendientes por implementar y corregir.
+
+Las principales actividades realizadas fueron:
+
+·  Continuación del desarrollo y mejora de la página web del proyecto.
+·  Integración progresiva de la información y funcionalidades del juego dentro de la interfaz web.
+·  Revisión y corrección de partes del código para mejorar el funcionamiento general de la aplicación.
+·  Trabajo constante en la lógica del sistema para asegurar la correcta comunicación entre la aplicación, la base de datos y la interfaz gráfica.
+
+Además, se comenzó a investigar el funcionamiento de los contenedores y su utilización dentro del proyecto, ya que era necesario comprender cómo:
+
+·  Subir y gestionar archivos dentro del contenedor.
+·  Ejecutar comandos desde terminal.
+·  Preparar el entorno de ejecución del proyecto.
+·  Entender el despliegue y funcionamiento del sistema en un entorno más profesional y estructurado.
+
+Esta parte requirió búsqueda de información adicional, pruebas y aprendizaje autónomo debido a que era una tecnología nueva para varios integrantes del equipo.
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+Miercoles, 14 de mayo 
+
+Durante esta jornada el equipo decidió centrarse principalmente en la parte técnica y funcional del proyecto, dejando temporalmente en segundo 
+plano el desarrollo de la página web para priorizar el avance del código y la configuración del entorno de trabajo.
+
+Las actividades principales realizadas fueron:
+
+·  Continuación y mejora del código principal del proyecto, dejando gran parte de las funcionalidades casi operativas.
+·  Revisión de la lógica del sistema y corrección de distintos errores detectados durante las pruebas.
+·  Creación y configuración del contenedor necesario para el entorno de desarrollo y ejecución del proyecto.
+·  Instalación de MySQL dentro del contenedor para gestionar la base de datos del sistema.
+·  Creación inicial de la base de datos e inserción de algunos registros de prueba con el objetivo de verificar el correcto funcionamiento de 
+   la conexión y las consultas.
+·  Creación de los tres usuarios correspondientes a los integrantes del equipo.
+·  Asignación de permisos y privilegios necesarios para garantizar el acceso y la gestión de la base de datos por parte de cada integrante.
+·  Realización de pruebas de conexión individuales, logrando acceder correctamente a MySQL mediante los usuarios creados.
+
+Al finalizar la jornada, el sistema de base de datos y el entorno del contenedor quedaron funcionando correctamente, representando un avance 
+importante para la integración total del proyecto.
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+Jueves, 15 de mayo 
+
+Durante esta jornada el trabajo se desarrolló con un ritmo más tranquilo y organizado, centrando los esfuerzos principalmente en los últimos 
+detalles del proyecto y en la preparación de la documentación.
+
+Las actividades realizadas fueron:
+
+·  Continuación del desarrollo de la página web, realizando mejoras visuales y organizativas en la interfaz.
+·  Revisión y finalización de pequeños detalles pendientes dentro del código del proyecto.
+·  Corrección de errores menores y ajustes necesarios para mejorar la estabilidad y funcionamiento general de la aplicación.
+·  Inicio de la documentación del proyecto, organizando la información relacionada con el desarrollo, las tecnologías utilizadas y el 
+   trabajo realizado durante las distintas fases.
+
+Debido a que gran parte de las funcionalidades principales ya estaban avanzadas, se decidió trabajar con menor intensidad y dedicar más tiempo 
+a la organización, revisión y preparación final del proyecto. Fue una jornada más calmada, enfocada en consolidar el trabajo realizado durante los días 
+anteriores.
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
 

@@ -1,0 +1,152 @@
+{{> header title=(concat 'Informe batalla #' id) page='batallas'}}
+
+<main>
+
+    <div style="margin-bottom:1.5rem;">
+        <a href="/batallas" class="btn" style="font-size:0.65rem;">← Volver a batallas</a>
+    </div>
+
+    <h1 class="section-title">
+        Informe de batalla
+        <span class="badge badge-gold" style="vertical-align:middle; font-size:0.9rem;">#{{id}}</span>
+    </h1>
+
+    {{#unless batalla}}
+        <div class="card" style="text-align:center; padding:3rem; color:var(--text-muted);">
+            <p>No se encontró información para la batalla #{{id}}.</p>
+        </div>
+    {{else}}
+
+    <!-- ── RECURSOS OBTENIDOS ── -->
+    <div class="grid-2" style="margin-bottom:2rem;">
+        <div class="stat-box">
+            <span class="stat-label">🪵 Madera obtenida</span>
+            <span class="stat-value">{{default batalla.wood_acquired 0}}</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-label">⚙ Hierro obtenido</span>
+            <span class="stat-value">{{default batalla.iron_acquired 0}}</span>
+        </div>
+    </div>
+
+    <!-- ── EJÉRCITOS ── -->
+    <div class="divider divider-graphic">
+        <div class="divider-line"></div>
+        <img src="/img/swords.png" alt="espadas" class="divider-image">
+        <div class="divider-line"></div>
+    </div>
+
+    <h2 class="section-title">Estadísticas de ejércitos</h2>
+
+    <div class="armies-grid">
+
+        <!-- Civilización -->
+        <div>
+            <div class="army-title army-civ">⚔ Ejército Civilización</div>
+
+            {{#if civAtaque.length}}
+                <p style="font-family:'Cinzel',serif; font-size:0.65rem; letter-spacing:0.1em; color:var(--text-muted); text-transform:uppercase; margin-bottom:0.75rem;">Unidades de ataque</p>
+                <div class="table-wrap" style="margin-bottom:1.25rem;">
+                    <table>
+                        <thead><tr><th>Tipo</th><th>Iniciales</th><th>Bajas</th></tr></thead>
+                        <tbody>
+                            {{#each civAtaque}}
+                            <tr>
+                                <td>{{this.type}}</td>
+                                <td>{{this.initial}}</td>
+                                <td><span class="badge badge-red">{{this.drops}}</span></td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            {{/if}}
+
+            {{#if civDefensa.length}}
+                <p style="font-family:'Cinzel',serif; font-size:0.65rem; letter-spacing:0.1em; color:var(--text-muted); text-transform:uppercase; margin-bottom:0.75rem;">Unidades de defensa</p>
+                <div class="table-wrap" style="margin-bottom:1.25rem;">
+                    <table>
+                        <thead><tr><th>Tipo</th><th>Iniciales</th><th>Bajas</th></tr></thead>
+                        <tbody>
+                            {{#each civDefensa}}
+                            <tr>
+                                <td>{{this.type}}</td>
+                                <td>{{this.initial}}</td>
+                                <td><span class="badge badge-red">{{this.drops}}</span></td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            {{/if}}
+
+            {{#if civEspecial.length}}
+                <p style="font-family:'Cinzel',serif; font-size:0.65rem; letter-spacing:0.1em; color:var(--text-muted); text-transform:uppercase; margin-bottom:0.75rem;">Unidades especiales</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Tipo</th><th>Iniciales</th><th>Bajas</th></tr></thead>
+                        <tbody>
+                            {{#each civEspecial}}
+                            <tr>
+                                <td>{{this.type}}</td>
+                                <td>{{this.initial}}</td>
+                                <td><span class="badge badge-red">{{this.drops}}</span></td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            {{/if}}
+
+            {{#if (isEmptyArmy civAtaque civDefensa civEspecial)}}
+                <p style="color:var(--text-muted);">Sin datos disponibles.</p>
+            {{/if}}
+        </div>
+
+        <!-- Enemigo -->
+        <div>
+            <div class="army-title army-enem">💀 Ejército Enemigo</div>
+
+            {{#if enemy.length}}
+                <p style="font-family:'Cinzel',serif; font-size:0.65rem; letter-spacing:0.1em; color:var(--text-muted); text-transform:uppercase; margin-bottom:0.75rem;">Unidades de ataque</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Tipo</th><th>Iniciales</th><th>Bajas</th></tr></thead>
+                        <tbody>
+                            {{#each enemy}}
+                            <tr>
+                                <td>{{this.type}}</td>
+                                <td>{{this.initial}}</td>
+                                <td><span class="badge badge-red">{{this.drops}}</span></td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            {{/if}}
+        </div>
+
+    </div>
+
+    <!-- ── LOG DE BATALLA ── -->
+    {{#if log.length}}
+        <div class="divider divider-graphic">
+        <div class="divider-line"></div>
+        <img src="/img/pergamino.png" alt="papel" class="divider-image">
+        <div class="divider-line"></div>
+    </div>
+
+        <h2 class="section-title">Desarrollo de la batalla</h2>
+
+        <div class="battle-log" id="battleLog">
+            {{#each log}}
+                <span class="{{getLogClass this.log_entry}}">{{this.log_entry}}</span>
+            {{/each}}
+        </div>
+    {{/if}}
+
+    {{/unless}}
+
+</main>
+
+{{> footer}}

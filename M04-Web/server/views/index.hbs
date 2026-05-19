@@ -1,0 +1,194 @@
+{{> header title='Inicio' page='inicio'}}
+
+<main>
+
+    <!-- ── HERO ── -->
+   <section class="hero">
+        <h1 class="hero-title">CIVILIZATIONS</h1>
+        <p class="hero-subtitle">Projecte AMS i AWS · Curs 25-26</p>
+        <p class="hero-desc">
+            Lidera una civilización en constante expansión. Gestiona recursos, construye edificios,
+            entrena ejércitos y defiéndete de los ataques enemigos que llegan sin descanso.
+            Solo las civilizaciones más fuertes sobreviven.
+        </p>
+    </section>
+
+    <div class="divider divider-graphic">
+        <div class="divider-line"></div>
+        <img src="/img/swords.png" alt="espadas" class="divider-image">
+        <div class="divider-line"></div>
+    </div>
+
+    <!-- ── INFORMACIÓN DEL JUEGO ── -->
+    <h2 class="section-title">Sobre el juego</h2>
+
+    <div class="grid-3">
+        <div class="card card-gold">
+            <div class="stat-icon">🏰</div>
+            <h3 class="stat-label">Edificios</h3>
+            <p style="margin-top:0.5rem; color: var(--text-main); font-size:0.95rem;">
+                Construye Granjas, Carpinterías, Herrerías, Torres Mágicas e Iglesias
+                para incrementar la producción de recursos y desbloquear unidades especiales.
+            </p>
+        </div>
+        <div class="card card-gold">
+            <div class="stat-icon">⚗️</div>
+            <h3 class="stat-label">Tecnologías</h3>
+            <p style="margin-top:0.5rem; color: var(--text-main); font-size:0.95rem;">
+                Avanza en tecnología de ataque y defensa para crear unidades más poderosas
+                y resistentes. Cada nivel incrementa los stats de tus tropas.
+            </p>
+        </div>
+        <div class="card card-gold">
+            <div class="stat-icon">⚔️</div>
+            <h3 class="stat-label">Batallas</h3>
+            <p style="margin-top:0.5rem; color: var(--text-main); font-size:0.95rem;">
+                Cada 3 minutos un ejército enemigo ataca tu civilización. Prepara tus
+                defensas y unidades de ataque para sobrevivir y recolectar escombros del enemigo.
+            </p>
+        </div>
+    </div>
+
+    <!-- ── UNIDADES ── -->
+    <div class="divider divider-graphic">
+        <div class="divider-line"></div>
+        <img src="/img/es.png" alt="escudos" class="divider-image">
+        <div class="divider-line"></div>
+    </div>
+
+    <h2 class="section-title">Unidades disponibles</h2>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Unidad</th>
+                    <th>Tipo</th>
+                    <th>Armadura</th>
+                    <th>Daño base</th>
+                    <th>% Atacar de nuevo</th>
+                    <th>% Generar residuos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>⚔ Espadachín</td>
+                    <td><span class="badge badge-red">Ataque</span></td>
+                    <td>400</td><td>80</td><td>3%</td><td>55%</td>
+                </tr>
+                <tr>
+                    <td>🏹 Lancero</td>
+                    <td><span class="badge badge-red">Ataque</span></td>
+                    <td>1000</td><td>150</td><td>7%</td><td>65%</td>
+                </tr>
+                <tr>
+                    <td>🎯 Ballesta</td>
+                    <td><span class="badge badge-red">Ataque</span></td>
+                    <td>6000</td><td>1000</td><td>45%</td><td>80%</td>
+                </tr>
+                <tr>
+                    <td>💣 Cañón</td>
+                    <td><span class="badge badge-red">Ataque</span></td>
+                    <td>8000</td><td>700</td><td>70%</td><td>90%</td>
+                </tr>
+                <tr>
+                    <td>🗼 Torre Flecha</td>
+                    <td><span class="badge badge-gold">Defensa</span></td>
+                    <td>200</td><td>80</td><td>5%</td><td>55%</td>
+                </tr>
+                <tr>
+                    <td>⚙ Catapulta</td>
+                    <td><span class="badge badge-gold">Defensa</span></td>
+                    <td>1200</td><td>250</td><td>12%</td><td>65%</td>
+                </tr>
+                <tr>
+                    <td>🚀 Torre Cohetes</td>
+                    <td><span class="badge badge-gold">Defensa</span></td>
+                    <td>7000</td><td>2000</td><td>30%</td><td>75%</td>
+                </tr>
+                <tr>
+                    <td>🔮 Mago</td>
+                    <td><span class="badge badge-gray">Especial</span></td>
+                    <td>0</td><td>3000</td><td>75%</td><td>0%</td>
+                </tr>
+                <tr>
+                    <td>✝ Sacerdote</td>
+                    <td><span class="badge badge-gray">Especial</span></td>
+                    <td>0</td><td>0</td><td>0%</td><td>0%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ── CAPTURAS ── -->
+    <div class="divider divider-graphic">
+        <div class="divider-line"></div>
+        <img src="/img/cam.png" alt="cam" class="divider-image">
+        <div class="divider-line"></div>
+    </div>
+    <h2 class="section-title">Capturas del juego</h2>
+
+    <div class="screenshots-grid">
+    <div class="screenshot">
+        <img src="/img/batalla.jpg" alt="Captura 1" style="width:100%; border-radius:8px;">
+    </div>
+    <div class="screenshot">
+        <img src="/img/batalla1.jpg" alt="Captura 2" style="width:100%; border-radius:8px;">
+    </div>
+    <div class="screenshot">
+        <img src="/img/batalla3.jpg" alt="Captura 3" style="width:100%; border-radius:8px;">
+    </div>
+</div>
+    <!-- ── ÚLTIMAS 2 BATALLAS ── -->
+    <div class="divider divider-graphic">
+        <div class="divider-line"></div>
+        <img src="/img/swords.png" alt="espadas" class="divider-image">
+        <div class="divider-line"></div>
+    </div>
+
+    <h2 class="section-title">Últimas batallas</h2>
+
+    {{#if batallas.length}}
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Batalla</th>
+                        <th>Bajas civilización</th>
+                        <th>Bajas enemigas</th>
+                        <th>Madera obtenida</th>
+                        <th>Hierro obtenido</th>
+                        <th>Informe</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each batallas}}
+                    <tr>
+                        <td>
+                            <span class="badge badge-gold">#{{this.num_battle}}</span>
+                        </td>
+                        <td>{{#if this.civilization_drops}}{{this.civilization_drops}}{{else}}0{{/if}}</td>
+                        <td>{{#if this.enemy_drops}}{{this.enemy_drops}}{{else}}0{{/if}}</td>
+                        <td>🪵 {{#if this.wood_acquired}}{{this.wood_acquired}}{{else}}0{{/if}}</td>
+                        <td>⚙ {{#if this.iron_acquired}}{{this.iron_acquired}}{{else}}0{{/if}}</td>
+                        <td>
+                            <a href="/informe?id={{this.num_battle}}" class="btn">Ver informe</a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    {{else}}
+        <div class="card" style="text-align:center; color:var(--text-muted);">
+            <p>Todavía no se han registrado batallas. ¡Prepara tus defensas!</p>
+        </div>
+    {{/if}}
+
+    <div style="margin-top:1.5rem; text-align:center;">
+        <a href="/batallas" class="btn">Ver todas las batallas →</a>
+    </div>
+
+</main>
+
+{{> footer}}
