@@ -12,9 +12,9 @@ public class DatabaseConnection {
     private static Connection connection = null;
 
     // Cambia estos valores según tu entorno
-    private static final String URL      = "jdbc:mysql://localhost:3306/civilizations_db";
+    private static final String URL      = "jdbc:mysql://172.18.132.85:3306/civilizations_db";
     private static final String USER     = "root";
-    private static final String PASSWORD = "1234";
+    private static final String PASSWORD = "1234Civil4.";
 
     // Constructor privado: nadie puede crear instancias desde fuera
     private DatabaseConnection() {}
